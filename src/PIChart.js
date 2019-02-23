@@ -118,8 +118,9 @@ handleRating = (stakeholder, newRatings) => {
  let newRating = {
    power: newRatings.power === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].power : newRatings.power,
    interest: newRatings.interest === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].interest : newRatings.interest,
-   positivity: 1,
-   stakeholder_id: 1
+   positivity: stakeholder.ratings[stakeholder.ratings.length - 2].positivity,
+   stakeholder_id: 1,
+   project_id: this.props.match.params.id
  }
 
   // delete newRating.id
@@ -247,7 +248,7 @@ return (
         </div>
 
         <div className={"graph_section_wrapper"}>
-          <div className="App " id='chart-position' >
+          <div className="App" id='chart-position' >
             <AnyChart
               width='100%'
               height='100%'

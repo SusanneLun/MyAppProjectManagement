@@ -12,6 +12,7 @@ import APILogin from './APILogin'
 import UserProjects from './UserProjects'
 import SignUpForm from './SignUpForm'
 import SupportChart from './SupportChart'
+import HowToRate from './HowToRate'
 
 // import {StyleSheet, View, WebView} from 'react-native';
 
@@ -69,6 +70,8 @@ return (
               <SignInForm {...routerProps} signin={signin}/>} />
               <Route exact path="/signup" component={routerProps =>
               <SignUpForm {...routerProps} />} />
+              <Route exact path="/how_to_rate" component={routerProps =>
+              <HowToRate {...routerProps} />} />
               <Route exact path="/support/:id" component={routerProps =>
               <SupportChart {...routerProps} username={username} /> } />
               <Route exact path="/manage_stakeholder/:id" component={ManageStakeholder} />

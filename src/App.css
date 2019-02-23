@@ -145,6 +145,10 @@ html, body, #root, #bar-chart {
   margin-top: 1em;
 }
 
+.project_description {
+  font-size: 12;
+}
+
 .graph_section_wrapper {
   flex: 1 1 auto;
   display: flex;
@@ -219,10 +223,28 @@ html, body, #root, #bar-chart {
   padding: 1em;
 }
 
+.how_to_rate {
+  display: list-item;
+  justify-content: space-around;
+  padding: inherit;
+  padding-left: 10em;
+  padding-top: 5em;
+  padding-right: 15em;
+}
+
 .project_list {
   display: flex;
   justify-content: space-around;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 3em;
+}
+
+#new_project_button {
+  padding: 3em;
+  display: flex-end;
+}
+
+.projects_header {
   padding: 3em;
 }
 
@@ -233,6 +255,11 @@ html, body, #root, #bar-chart {
   background: 'purple';
   textDecoration: 'none';
   color: 'white';
+}
+
+.back_button.ui.purple.button {
+  margin-left: 50px;
+  margin-top: 40px;
 }
 
 .new_project_submit {
@@ -311,6 +338,11 @@ html, body, #root, #bar-chart {
 .navbar {
   display: flex;
   justify-content: space-around;
+  padding: 12px;
+  margin: 0 6px 6px;
+  background: purple;
+  textDecoration: none;
+  color: white;
 }
 
 #create-stakeholder {

@@ -27,7 +27,7 @@ const Navbar = () =>
       activeStyle={{
         background: 'purple'
       }}
-    >Home</NavLink>
+    >PM Influence</NavLink>
     <NavLink
     to="/signin"
     exact
@@ -48,31 +48,15 @@ const Navbar = () =>
     style={link}
     activeStyle={{
       background: 'purple'
-    }}>Projects</NavLink>
+    }}>My Projects</NavLink>
     <NavLink
-      to="/PI_Chart"
+      to="/how_to_rate"
       exact
       style={link}
       activeStyle={{
         background: 'purple'
       }}
-    >PI Chart</NavLink>
-    <NavLink
-      to="/support"
-      exact
-      style={link}
-      activeStyle={{
-        background: 'purple'
-      }}
-    >Support</NavLink>
-    <NavLink
-      to="/manage_stakeholder"
-      exact
-      style={link}
-      activeStyle={{
-        background: 'purple'
-      }}
-    >Manage Stakeholder</NavLink>
+    >How To Rate</NavLink>
   </div>;
 
 

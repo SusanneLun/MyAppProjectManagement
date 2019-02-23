@@ -11,19 +11,25 @@ class NewProject extends Component {
 }
 
 
+handleChange = (event, value, user) => {
+this.setState({ [event.target.name]: event.target.value })
+}
+
 
 handleSubmit = (event) => {
+  const token = localStorage.getItem('token')
   event.preventDefault();
-  fetch(`http://localhost:3000/projects`,
+  fetch(`http://localhost:3000/users/${this.props.user.id}/projects`,
   {
     method: 'POST',
     headers: {
+      'Authorization': token,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(
       {
         name: this.state.name,
-        description: this.state.description
+        description: this.state.description,
       }
     )
   }).then(res => res.json())
@@ -32,18 +38,19 @@ handleSubmit = (event) => {
     name: "",
     description: ""
   }))
+  this.props.showForm()
 }
 
 render() {
   return (
 
 
-  <div id="create-project">
+  <div id="create-project" className={this.props.showNewProjectForm ? "visible" : null}>
     <Form  className="form_popup" onSubmit={this.handleSubmit}>
       <h3>Create New Project</h3>
       <Form.Group className="form_area" widths='equal' >
-        <Form.Input name="name" fluid label='Project Name' type="text" placeholder="Project Name" value={this.state.value} />
-        <Form.Input name="description" fluid label='Project Description' type="text" placeholder="Project Description" value={this.state.value}/>
+        <Form.Input name="name" fluid label='Project Name' type="text" placeholder="Project Name" onChange={this.handleChange} value={this.state.value} />
+        <Form.Input name="description" fluid label='Project Description' type="text" placeholder="Project Description" onChange={this.handleChange} value={this.state.value}/>
       </Form.Group>
 
       <div className={"new_project_submit"}>

@@ -9,7 +9,6 @@ class StakeholderSupport extends Component {
     super()
     this.state = {
       positivity: '',
-      option: ''
     }
     }
 
@@ -52,18 +51,15 @@ render() {
             <label> Support Score: {ratings && ratings[ratings.length -1].positivity}</label>
             <input type="text-field"
               placeholder='Change..'
-              name="power" value={this.state.positivity}
+              name="positivity" value={this.state.positivity}
               onChange={this.ratingField}/>
           </div>
           <div className={"stakeholder_card__submit"}>
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
           </div>
-          <div >
-            <label> Strategies: </label>
-            <p>{strategies[0] && strategies[strategies.length -1].option}</p>
 
-          </div>
         <Card.Content extra>
+
     </Card.Content>
   </Card>
 

@@ -11,19 +11,20 @@ return (
     <Card.Content >
       <Card.Header>
         {project.name}
-        <Card.Description>
+        <p></p>
+        <Card.Description className="project_description">
         {project.description}
         </Card.Description>
         <p></p>
         <Link to={`/PI_Chart/${project.id}`}>
         <Button compact color='purple'>
         View PI Chart </Button>
-        ></Link>
+        </Link>
         <Link to={`/support/${project.id}`}>
         <p></p>
         <Button compact color='purple'>
         View Support Chart </Button>
-        ></Link>
+        </Link>
       </Card.Header>
     </Card.Content>
   </Card>

@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import StakeholderSupport from './StakeholderSupport'
 
 
-const SupportContainer = ({ stakeholders, handleRating }) => {
+class SupportContainer extends Component {
 
+  render() {
 
   return (
 
-    <div className="ui-container stakeholders_list" >
+    <div className="ui-container stakeholders_list" id="chart-page">
       {
-      stakeholders.map(stakeholder =>
+      this.props.stakeholders.map(stakeholder =>
           <StakeholderSupport stakeholder={stakeholder}
             key={stakeholder.name}
-            handleRating={handleRating}
+            handleRating={this.props.handleRating}
+            selectStakeholder={this.props.selectStakeholder}
             />)
       }
 
     </div>
   )
+}
 }
 
 export default SupportContainer

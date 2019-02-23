@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Container, Form, Select } from 'semantic-ui-react'
+import { Container, Form, Select, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import BackButton from './BackButton'
 
 
 const options = [
@@ -63,6 +65,27 @@ class ManageStakeholder extends Component {
   //     positivity: updatedRatings.positivity === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].positivity : updatedRatings.positivity
   //   }
   // }
+  handleSubmitRatings = (stakeholder, updatedValues) => {
+
+    let updatedValue = {
+      power: updatedValues.power === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].power : updatedValues.power,
+      interest: updatedValues.interest === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].interest : updatedValues.interest,
+      positivity: updatedValues.positivity === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].positivity : updatedValues.positivity,
+  }
+  const { id } = this.props.match.params
+    fetch(`http://localhost:3000/stakeholders/${id}/ratings`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify( updatedValue ),
+    }).then(res => res.json())
+    .then(stakeholder => {
+      this.setState({ power: stakeholder.ratings[stakeholder.ratings.length -1].power,
+        interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
+        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
+      })})
+  }
 
 
 
@@ -87,20 +110,10 @@ class ManageStakeholder extends Component {
     }).then(res => res.json())
     .then(stakeholder => {
       this.setState({ name: stakeholder.name, alias: stakeholder.alias, title: stakeholder.title,
-        note: stakeholder.note, power: stakeholder.ratings[stakeholder.ratings.length -1].power,
-        interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
-        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
-      })
-    }).then(this.setState({
-      name: "",
-      title: "",
-      alias: "",
-      note: "",
-      power: 0,
-      interest: 0,
-      positivity: 0
-    }))
+        note: stakeholder.note})})
+        .then(this.handleSubmitRatings)
   }
+
 
 
 handleDelete = (stakeholder) => {
@@ -112,6 +125,7 @@ handleDelete = (stakeholder) => {
     },
     body: JSON.stringify({ stakeholder })
   })
+  .then(() => this.props.history.go(-1))
 }
 
 
@@ -152,6 +166,7 @@ return (
     <Form.Button type="delete"  color="red" onClick={() => this.handleDelete(this.props.match.params.id, this.state)}> Delete Stakeholder </Form.Button>
     </div>
 </Form>
+
 </div>
 
   );

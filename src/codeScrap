@@ -22,6 +22,12 @@
 ),
 
 
+// <div>
+//   <label> Strategies: </label>
+//   <p>{strategies[0] && strategies[strategies.length -1].option}</p>
+// </div>
+
+
 stakeholder.name &&
 
 
@@ -53,3 +59,7 @@ stakeholder.name &&
 
           <div class="ui checkbox">
           <input type="checkbox" />
+
+          <div>
+          <Button onClick={() => this.props.history.goBack()} color="purple" className="back_button">Back</Button>
+          </div>

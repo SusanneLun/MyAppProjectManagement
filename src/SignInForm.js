@@ -92,10 +92,7 @@ render() {
             <Input name="password" type="password" id="password" autoComplete="current-password" value={this.state.password} onChange={this.handleChange} />
           </FormControl>
           <p></p>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+      
           <p></p>
           <Button
             type="submit"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 // Step 1. Import react-router functions
 
@@ -27,10 +28,9 @@ const Home = () => {
       <ol>4. Change ratings or any other stakeholder information as your project progresses.</ol>
       </ul>
       </p>
-      <h3>You will find some more information about Stakeholder Analysis (insert link here).</h3>
+      <h3>You will find some more information about Stakeholder Rating
+      <Link to="/how_to_rate"> here.</Link></h3>
 
-      </div>
-      <div><a to={"/signin"}>Sign In or Register</a>
       </div>
     </div>
   );

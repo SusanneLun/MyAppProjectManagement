@@ -21,6 +21,7 @@ constructor() {
     name: "",
     title: "",
     alias: "",
+    note: "",
     power: 0,
     interest: 0,
     positivity: 0
@@ -50,6 +51,7 @@ handleNumChange = (event, data) => {
         name: this.state.name,
         title: this.state.title,
         alias: this.state.alias,
+        note: this.state.note,
         power: this.state.power,
         interest: this.state.interest,
         positivity: this.state.positivity,
@@ -62,6 +64,7 @@ handleNumChange = (event, data) => {
       name: "",
       title: "",
       alias: "",
+      note: "",
       power: 0,
       interest: 0,
       positivity: 0
@@ -74,6 +77,8 @@ handleNumChange = (event, data) => {
   //     filter: newFilter
   //   })
   // }
+
+
 
 render() {
 // const { value } = this.state
@@ -110,7 +115,7 @@ return (
     </Form.Group>
 
     <div className={"new_stakeholder_submit"}>
-      <Form.Button type="submit" color="purple"> Save Stakeholder </Form.Button>
+      <Form.Button type="submit" color="purple" > Save Stakeholder </Form.Button>
     </div>
   </Form>
 </div>

@@ -2,15 +2,28 @@ import React, { Component } from 'react'
 import APILogin from './APILogin'
 import Project from './Project'
 import NewProject from './NewProject'
+import { Button } from 'semantic-ui-react'
+import App from './App.css'
 
 
 class UserProjects extends Component {
   constructor() {
     super()
   this.state = {
-    projects: []
+    projects: [],
+    showNewProjectForm: false
   }
 }
+
+showForm = (event) =>
+this.setState({
+  showNewProjectForm:
+  !this.state.showNewProjectForm
+})
+// showForm = (event) {
+//   #create-project.visible {
+//     display: "flex";
+//   }
 
 addNewProject = (project) => {
   let newProjectState = [...this.state.projects, project]
@@ -36,16 +49,26 @@ render () {
   const { projects } = this.state
 
   return (
+    <div>
+      <div className="projects_header">
+      <h3>YOUR PROJECTS</h3>
+      </div>
     <div className='project_list'>
-      <h3>Your Projects:</h3>
+
       { projects.length === 0 && <p>You have not registered any projects yet.
         Please use the form below to register your first project.</p>}
       {
         projects.map(project =>
           <Project key={project.id} project={project} />)
       }
-          <NewProject addNewProject={this.addNewProject} />
+          <NewProject user={this.props.user} addNewProject={this.addNewProject} showNewProjectForm={this.state.showNewProjectForm} showForm={this.showForm}/>
 
+    </div>
+    <div id="new_project_button">
+    <Button class="ui toggle button" onClick={this.showForm} color="purple" >
+    Create New Project
+    </Button>
+    </div>
     </div>
   )
 }

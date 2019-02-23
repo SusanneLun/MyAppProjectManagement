@@ -1,15 +1,21 @@
-import React from 'react',
+import React from 'react'
 
 
 const HowToRate = () => {
 
 return (
+
+  <div className="how_to_rate">
   <div>
+  <h3>HOW TO RATE STAKEHOLDERS</h3>
+  <p></p>
+  </div>
   Your stakeholders will be rated on three dimensions, all in
   relation to your project. So once you have registered your
   project with a name and a description, you can register your
-  stakeholders <a>here</a> and give them their initial ratings.
-
+  stakeholders in the Power/Interest Chart and give them their
+  initial ratings.
+  <p></p>
   <h3>Who is a project stakeholder?</h3>
   According to the Project Management Institute (PMI),
   the term project stakeholder refers to, "an individual,

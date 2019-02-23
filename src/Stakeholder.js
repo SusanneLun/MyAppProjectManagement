@@ -53,7 +53,7 @@ render() {
 
     <Card color='purple' className={"stakeholder_card"}>
       <Card.Content >
-        <Card.Header key={id}>
+        <Card.Header key={id} >
           <Link to={"/manage_stakeholder/" + id}>{name}</Link>
           <Card.Meta>
             <span className='date'> {alias}</span>

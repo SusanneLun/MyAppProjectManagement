@@ -81,6 +81,7 @@ handleNumChange = (event, data) => {
 
 
 render() {
+  
 // const { value } = this.state
 return (
 <div id="create-stakeholder">

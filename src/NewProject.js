@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 class NewProject extends Component {
   constructor() {
@@ -46,17 +46,20 @@ render() {
 
 
   <div id="create-project" className={this.props.showNewProjectForm ? "visible" : null}>
-    <Form  className="form_popup" onSubmit={this.handleSubmit}>
+    <Form  className="form_popup" >
       <h3>Create New Project</h3>
       <Form.Group className="form_area" widths='equal' >
         <Form.Input name="name" fluid label='Project Name' type="text" placeholder="Project Name" onChange={this.handleChange} value={this.state.value} />
         <Form.Input name="description" fluid label='Project Description' type="text" placeholder="Project Description" onChange={this.handleChange} value={this.state.value}/>
       </Form.Group>
 
-      <div className={"new_project_submit"}>
-      <Form.Button type="submit" color="purple"> Save Project </Form.Button>
+      <div class="ui buttons" className={"new_project_submit"}>
+        <Button class="ui button" onClick={this.props.hideForm}>Cancel</Button>
+        <div class="or"></div>
+        <Button class="ui positive button" color="purple" onClick={this.handleSubmit}>Save</Button>
       </div>
     </Form>
+
   </div>
 
 )}

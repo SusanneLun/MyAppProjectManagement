@@ -31,7 +31,6 @@ handleRating = (stakeholder, newRatings) => {
    power: stakeholder.ratings[stakeholder.ratings.length - 1].power,
    interest: stakeholder.ratings[stakeholder.ratings.length - 1].interest,
    positivity: newRatings.positivity === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].positivity : newRatings.positivity,
-   stakeholder_id: 1,
    project_id: this.props.match.params.id
  }
   // delete newRating.id
@@ -157,7 +156,7 @@ render() {
 
   return (
     <div className={"char_page"}>
-    <div className="App" id='stakeholders_wrapper'>
+    <div className="App" class='stakeholders_wrapper'>
     {this.state.stakeholders.length > 0 ?
     <SupportContainer stakeholders={this.state.stakeholders}
         handleRating={this.handleRating} />

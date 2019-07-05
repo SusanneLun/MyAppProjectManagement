@@ -102,7 +102,7 @@ updateStakeholder = (stakeholder, updatedRatings) => {
   let updatedRating = {
     power: updatedRatings.power === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].power : updatedRatings.power,
     interest: updatedRatings.interest === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].interest : updatedRatings.interest,
-    positivity: updatedRatings.positivity === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].positivity : updatedRatings.positivity
+    positivity: stakeholder.ratings[stakeholder.ratings.length - 1].positivity
   }
 }
 
@@ -118,8 +118,7 @@ handleRating = (stakeholder, newRatings) => {
  let newRating = {
    power: newRatings.power === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].power : newRatings.power,
    interest: newRatings.interest === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].interest : newRatings.interest,
-   positivity: stakeholder.ratings[stakeholder.ratings.length - 2].positivity,
-   stakeholder_id: 1,
+   positivity: stakeholder.ratings[stakeholder.ratings.length - 1].positivity,
    project_id: this.props.match.params.id
  }
 
@@ -229,6 +228,7 @@ componentDidMount() {
 
     chart.quarters(quarters);
 
+    const { project_id } = this.props.match.params
 
 return (
       <div className="char_page">
@@ -243,7 +243,8 @@ return (
                               selectedStakeholder={this.selectedStakeholder}
                               handleRating={this.handleRating}
                               filter={this.state.filter}
-                              selectStakeholder={this.selectStakeholder}/>
+                              selectStakeholder={this.selectStakeholder}
+                              projectId={project_id}/>
           }
         </div>
 

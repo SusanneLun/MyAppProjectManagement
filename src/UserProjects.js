@@ -20,6 +20,12 @@ this.setState({
   showNewProjectForm:
   !this.state.showNewProjectForm
 })
+
+
+hideForm = (event) =>
+this.setState({
+  showNewProjectForm: false
+})
 // showForm = (event) {
 //   #create-project.visible {
 //     display: "flex";
@@ -61,7 +67,9 @@ render () {
         projects.map(project =>
           <Project key={project.id} project={project} />)
       }
-          <NewProject user={this.props.user} addNewProject={this.addNewProject} showNewProjectForm={this.state.showNewProjectForm} showForm={this.showForm}/>
+          <NewProject user={this.props.user} addNewProject={this.addNewProject}
+          showNewProjectForm={this.state.showNewProjectForm} showForm={this.showForm}
+          hideForm={this.hideForm}/>
 
     </div>
     <div id="new_project_button">

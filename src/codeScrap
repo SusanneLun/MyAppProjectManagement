@@ -63,3 +63,51 @@ stakeholder.name &&
           <div>
           <Button onClick={() => this.props.history.goBack()} color="purple" className="back_button">Back</Button>
           </div>
+
+          <div className={"new_project_submit"} >
+          <Form.Button type="submit" color="purple"> Save Project </Form.Button>
+          </div>
+        </Form>
+        <div className={"new_project_submit"}>
+        <Form onSubmit={this.props.hideForm}>
+        <Form.Button type="cancel" color="white" > Cancel </Form.Button>
+
+
+        // updateStakeholder = (stakeholder, updatedRatings) => {
+        //   let updatedStakeholder = {
+        //     name: updatedStakeholder.name === "" ? stakeholder.name : updatedStakeholder.name,
+        //     title: updatedStakeholder.title === "" ? stakeholder.title : updatedStakeholder.title,
+        //     alias: updatedStakeholder.alias === "" ? stakeholder.alias : updatedStakeholder.alias,
+        //     note: updatedStakeholder.note === "" ? stakeholder.note : updatedStakeholder.note
+        //   }
+        //   let updatedRating = {
+        //     power: updatedRatings.power === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].power : updatedRatings.power,
+        //     interest: updatedRatings.interest === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].interest : updatedRatings.interest,
+        //     positivity: updatedRatings.positivity === "" ? stakeholder.ratings[stakeholder.ratings.length - 1].positivity : updatedRatings.positivity
+        //   }
+        // }
+
+
+        , power: stakeholder.ratings[stakeholder.ratings.length -1].power,
+        interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
+        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
+
+        static getProjectStakeholders (id, stakeholder_id) {
+          return fetch(this.projectStakeholdersURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({project_id: id, stakeholder_id: stakeholder_id})
+        }).then(resp => resp.json())
+        }
+
+        id: "",
+        name: "",
+        title: "",
+        alias: "",
+        note: "",
+        power: "",
+        interest: "",
+        positivity: "",
+
+        .then(stakeholder => this.setState({ id: stakeholder.id, name: stakeholder.name, alias: stakeholder.alias, title: stakeholder.title,
+          note: stakeholder.note}))

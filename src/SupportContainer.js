@@ -8,7 +8,7 @@ class SupportContainer extends Component {
 
   return (
 
-    <div className="ui-container stakeholders_list" id="chart-page">
+    <div className="ui-container stakeholders_list" >
       {
       this.props.stakeholders.map(stakeholder =>
           <StakeholderSupport stakeholder={stakeholder}

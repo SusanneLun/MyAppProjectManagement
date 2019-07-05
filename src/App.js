@@ -55,7 +55,6 @@ componentDidMount () {
     const { signin, signout } = this
     const { username, user } = this.state
 
-
 return (
       <div>
         <div>
@@ -69,12 +68,16 @@ return (
               <Route exact path="/signin" component={routerProps =>
               <SignInForm {...routerProps} signin={signin}/>} />
               <Route exact path="/signup" component={routerProps =>
-              <SignUpForm {...routerProps} />} />
+                <SignUpForm {...routerProps} />
+              } />
               <Route exact path="/how_to_rate" component={routerProps =>
-              <HowToRate {...routerProps} />} />
+                <HowToRate {...routerProps} />
+              } />
               <Route exact path="/support/:id" component={routerProps =>
-              <SupportChart {...routerProps} username={username} /> } />
-              <Route exact path="/manage_stakeholder/:id" component={ManageStakeholder} />
+                <SupportChart {...routerProps} username={username} /> } />
+              <Route exact path="/manage_stakeholder/:stakeholder_id/project/:project_id" component={routerProps =>
+                <ManageStakeholder {...routerProps} username={username} />
+              } />
               <Route path="/" component={Home} />
             </Switch>
       </div>

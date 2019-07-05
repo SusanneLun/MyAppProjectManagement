@@ -15,7 +15,8 @@ render() {
         <Stakeholder stakeholder={stakeholder}
           key={stakeholder.name}
           handleRating={this.props.handleRating}
-          selectStakeholder={this.props.selectStakeholder}/>)
+          selectStakeholder={this.props.selectStakeholder}
+          />)
     }
 
   </div>

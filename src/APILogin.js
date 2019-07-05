@@ -32,6 +32,10 @@ static getCategories () {
   return this.get(`http://localhost:3000/categories`)
 }
 
+static getStakeholderProjectInfo (stakeholder_id, id) {
+  return this.get(`http://localhost:3000/stakeholder_project_info/${stakeholder_id}/${id}`)
+}
+
 static getProjectStakeholders (id) {
   return fetch(this.projectStakeholdersURL, {
     method: "POST",
@@ -39,6 +43,7 @@ static getProjectStakeholders (id) {
     body: JSON.stringify({project_id: id})
 }).then(resp => resp.json())
 }
+
 
 static get (url) {
       const token = localStorage.getItem('token')

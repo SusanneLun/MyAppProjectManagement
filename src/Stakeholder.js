@@ -9,7 +9,8 @@ class Stakeholder extends Component {
     super()
     this.state = {
       power: '',
-      interest: ''
+      interest: '',
+      positivity: ''
     }
     }
 
@@ -24,7 +25,8 @@ onHandleRating = (event) => {
   this.props.handleRating(this.props.stakeholder, this.state)
   this.setState({
     power: '',
-    interest: ''
+    interest: '',
+    positivity: ''
   })
 }
 
@@ -48,13 +50,15 @@ onHandleRating = (event) => {
 
 render() {
   const { name, title, alias, ratings, id } = this.props.stakeholder
+
+
   return (
 
 
     <Card color='purple' className={"stakeholder_card"}>
       <Card.Content >
         <Card.Header key={id} >
-          <Link to={"/manage_stakeholder/" + id}>{name}</Link>
+          <Link to={`/manage_stakeholder/${id}/project/${id}`}>{name}</Link>
           <Card.Meta>
             <span className='date'> {alias}</span>
           </Card.Meta>

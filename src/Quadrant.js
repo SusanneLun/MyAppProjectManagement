@@ -131,7 +131,7 @@ const Quadrant = () => {
 
         // event for point hover
         chart.listen('pointsHover', function(e) {
-          var item = companies_data[e.currentPoint.index];
+          var item = stakeholder.data[e.currentPoint.index];
           putDataInTooltip(item);
         });
 

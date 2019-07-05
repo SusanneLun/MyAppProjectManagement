@@ -8,7 +8,7 @@
     "@material-ui/icons": "^3.0.2",
     "anychart": "^8.6.0",
     "anychart-react": "^1.4.1",
-    "graceful-fs": "^4.1.15",
+    "graceful-fs": "^4.2.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-easy-chart": "^1.0.0",

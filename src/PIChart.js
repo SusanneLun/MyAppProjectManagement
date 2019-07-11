@@ -171,7 +171,7 @@ componentDidMount() {
   .then(chartData => this.setState({ chartData:
     this.state.stakeholders.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
     value: stakeholder.ratings[stakeholder.ratings.length -1].power,
-    name: stakeholder.name}})
+    name: stakeholder.name, alias: stakeholder.alias}})
     }))
 }
 
@@ -187,10 +187,7 @@ componentDidMount() {
 
   render() {
 
-    let tooltip = ("<div class='custom-tooltip'>" +
-      "<h1></h1" + "><div class='subtitle'></div>" +
-      "<p class='description'></p>" +
-      "</div>");
+
 
     let chart = anychart.quadrant();
     let yTitle = chart.yAxis().title();
@@ -216,56 +213,11 @@ componentDidMount() {
     chart.container("container")
     chart.draw();
 
-
+    // const stakeholder_data = anychart.data.set(this.state.stakeholder.data)
     const dataSet = anychart.data.set(this.state.chartData);
 
     var markers = chart.marker(dataSet);
 
-    // chart.listen('chartDraw', function() {
-    //   var container = (this.container().getStage().container());
-    //
-    //   container.append(tooltip);
-    // });
-
-    // event for mouse over a point
-    chart.listen('pointMouseMove', function(e) {
-      var clientX = e.originalEvent['offsetX'];
-      var clientY = e.originalEvent['offsetY'];
-      var delta = 35;
-
-      // prevent tooltip from leaving the screen
-      var left = clientX - tooltip.width() / 2;
-      if (left + tooltip.width() > chart.container().width())
-        left = chart.container().width() - tooltip.width();
-      if (left < 0)
-        left = 0;
-
-      // move tooltip
-      tooltip.css({
-        'left': left,
-        'top': clientY - delta - tooltip.height()
-      });
-
-      // show tooltip
-      tooltip.show();
-    });
-
-    // event for mouse leaving point
-    chart.listen('pointMouseOut', function() {
-      // hide tooltip
-      tooltip.hide();
-    });
-
-    // event for point hover
-    // chart.listen('pointsHover', function(e) {
-    //   var item = this.state.stakeholder.data[e.currentPoint.index];
-    //   putDataInTooltip(item);
-    // });
-    //
-    // function putDataInToolTip(item) {
-    //   let stakeholderData = this.state.stakeholder.data
-    //
-    // }
 
     // set labels settings
     markers.labels()
@@ -276,12 +228,25 @@ componentDidMount() {
       .anchor('left-center')
       .offsetX(2)
       .offsetY(2)
-      .format('{%Name}');
+      .format('{%Name}')
+      .format('{%Alias}');
     // enabled tooltip
-    markers.tooltip(true);
+    markers.tooltip(false);
 
     chart.quarters(quarters);
 
+
+    chart.listen('pointsHover', function(e) {
+      var item = this.state.stakeholder.data[e.currentPoint.index];
+      putDataInTooltip(item);
+    });
+
+    function putDataInTooltip(item) {
+      if (item['stakeholder.alias']) {
+        this.state.stakeholder.alias += '<br/>' + item['stakeholder.alias'];
+      ('.custom-tooltip .this.state.stakeholder.alias').html(this.state.stakeholder.alias)
+  }
+}
 
     const { project_id } = this.props.match.params
 

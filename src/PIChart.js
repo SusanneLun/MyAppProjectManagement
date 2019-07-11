@@ -13,6 +13,8 @@ import APILogin from './APILogin'
 
 import chartData from './ChartData'
 
+
+
 const quarters = {
   rightTop: {
     title: {
@@ -185,6 +187,11 @@ componentDidMount() {
 
   render() {
 
+    let tooltip = ("<div class='custom-tooltip'>" +
+      "<h1></h1" + "><div class='subtitle'></div>" +
+      "<p class='description'></p>" +
+      "</div>");
+
     let chart = anychart.quadrant();
     let yTitle = chart.yAxis().title();
     yTitle.enabled(true);
@@ -213,6 +220,53 @@ componentDidMount() {
     const dataSet = anychart.data.set(this.state.chartData);
 
     var markers = chart.marker(dataSet);
+
+    // chart.listen('chartDraw', function() {
+    //   var container = (this.container().getStage().container());
+    //
+    //   container.append(tooltip);
+    // });
+
+    // event for mouse over a point
+    chart.listen('pointMouseMove', function(e) {
+      var clientX = e.originalEvent['offsetX'];
+      var clientY = e.originalEvent['offsetY'];
+      var delta = 35;
+
+      // prevent tooltip from leaving the screen
+      var left = clientX - tooltip.width() / 2;
+      if (left + tooltip.width() > chart.container().width())
+        left = chart.container().width() - tooltip.width();
+      if (left < 0)
+        left = 0;
+
+      // move tooltip
+      tooltip.css({
+        'left': left,
+        'top': clientY - delta - tooltip.height()
+      });
+
+      // show tooltip
+      tooltip.show();
+    });
+
+    // event for mouse leaving point
+    chart.listen('pointMouseOut', function() {
+      // hide tooltip
+      tooltip.hide();
+    });
+
+    // event for point hover
+    // chart.listen('pointsHover', function(e) {
+    //   var item = this.state.stakeholder.data[e.currentPoint.index];
+    //   putDataInTooltip(item);
+    // });
+    //
+    // function putDataInToolTip(item) {
+    //   let stakeholderData = this.state.stakeholder.data
+    //
+    // }
+
     // set labels settings
     markers.labels()
       .enabled(true)
@@ -223,10 +277,11 @@ componentDidMount() {
       .offsetX(2)
       .offsetY(2)
       .format('{%Name}');
-    // disabled tooltip
+    // enabled tooltip
     markers.tooltip(true);
 
     chart.quarters(quarters);
+
 
     const { project_id } = this.props.match.params
 

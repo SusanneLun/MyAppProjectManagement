@@ -51,7 +51,6 @@ onHandleRating = (event) => {
 render() {
   const { name, title, alias, ratings, id } = this.props.stakeholder
 
-
   return (
 
 

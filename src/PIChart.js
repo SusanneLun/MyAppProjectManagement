@@ -235,21 +235,43 @@ componentDidMount() {
       .format('{%Name} + {%Alias}')
       // .format('{%Alias}');
     // disabled tooltip
-    markers.tooltip(false);
+    markers.tooltip(true);
 
     chart.quarters(quarters);
 
+//
+//     chart.listen('pointsHover', function(e) {
+//       let item = dataSet[e.currentPoint.index];
+//       putDataInTooltip(item);
+//     });
+//
+//     function putDataInTooltip(item) {
+//       let description = ''
+//         description += '<br/>' + item['name'];
+//       ('.custom-tooltip .description').html(description)
+// }
 
-    chart.listen('pointsHover', function(e) {
-      let item = dataSet[e.currentPoint.index];
-      putDataInTooltip(item);
-    });
+chart.tooltip()
+      .useHtml(true)
+      .fontColor('#fff')
+      .format(function () {
+            return this.getData('data') + '<br/>' +
+                          'Power: <span style="color: #d2d2d2; font-size: 12px">' +
+                          this.getData('value') + '</span></strong><br/>' +
+                          'Interest: <span style="color: #d2d2d2; font-size: 12px">' +
+                          this.getData('x') + '</span></strong><br/>' +
+                          'Positivity: <span style="color: #d2d2d2; font-size: 12px">' +
+                          this.getData('size') + ' min.</span></strong>';
 
-    function putDataInTooltip(item) {
-      let description = ''
-        description += '<br/>' + item['name'];
-      ('.custom-tooltip .description').html(description)
-}
+              });
+
+chart.tooltip().format(function() {
+console.log(this);
+return 'Interest: ' + this.x , +
+'\nPower: ' + this.value +
+'\n ' + this.getData('name') +
+'\n ' + this.getData('alias')
+});
 
     const { project_id } = this.props.match.params
 

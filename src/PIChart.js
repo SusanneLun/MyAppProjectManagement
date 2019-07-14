@@ -215,6 +215,8 @@ componentDidMount() {
     chart.draw();
 
 
+
+
     // const stakeholder_data = anychart.data.set(this.state.stakeholder.data)
     const dataSet = anychart.data.set(this.state.chartData);
 
@@ -232,23 +234,22 @@ componentDidMount() {
       .offsetY(2)
       .format('{%Name} + {%Alias}')
       // .format('{%Alias}');
-    // enabled tooltip
+    // disabled tooltip
     markers.tooltip(false);
 
     chart.quarters(quarters);
 
 
-//     chart.listen('pointsHover', function(e) {
-//       let item = chartData.data[e.currentPoint.index];
-//       putDataInTooltip(item);
-//     });
-//
-//     function putDataInTooltip(item) {
-//       if (item['stakeholder.alias']) {
-//         this.state.stakeholder.alias += '<br/>' + item['stakeholder.alias'];
-//       ('.custom-tooltip .this.state.stakeholder.alias').html(this.state.stakeholder.alias)
-//   }
-// }
+    chart.listen('pointsHover', function(e) {
+      let item = dataSet[e.currentPoint.index];
+      putDataInTooltip(item);
+    });
+
+    function putDataInTooltip(item) {
+      let description = ''
+        description += '<br/>' + item['name'];
+      ('.custom-tooltip .description').html(description)
+}
 
     const { project_id } = this.props.match.params
 

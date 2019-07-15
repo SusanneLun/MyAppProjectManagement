@@ -129,19 +129,19 @@ render() {
   chart.xScale().minimum(0);
   chart.xScale().maximum(11)
 
-  chart.tooltip()
-        .useHtml(true)
-        .fontColor('#fff')
-        .format(function () {
-              return this.getData('data') + '<br/>' +
-                            'Power: <span style="color: #d2d2d2; font-size: 12px">' +
-                            this.getData('value') + '</span></strong><br/>' +
-                            'Interest: <span style="color: #d2d2d2; font-size: 12px">' +
-                            this.getData('x') + '</span></strong><br/>' +
-                            'Positivity: <span style="color: #d2d2d2; font-size: 12px">' +
-                            this.getData('size') + ' min.</span></strong>';
-
-                });
+  // chart.tooltip()
+  //       .useHtml(true)
+  //       .fontColor('#fff')
+  //       .format(function () {
+  //             return this.getData('data') + '<br/>' +
+  //                           'Power: <span style="color: #d2d2d2; font-size: 12px">' +
+  //                           this.getData('value') + '</span></strong><br/>' +
+  //                           'Interest: <span style="color: #d2d2d2; font-size: 12px">' +
+  //                           this.getData('x') + '</span></strong><br/>' +
+  //                           'Positivity: <span style="color: #d2d2d2; font-size: 12px">' +
+  //                           this.getData('size') + ' min.</span></strong>';
+  //
+  //               });
 
 
 

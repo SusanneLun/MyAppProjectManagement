@@ -148,7 +148,9 @@ handleRating = (stakeholder, newRatings) => {
       stakeholders: newStakeholdersState,
       chartData: newStakeholdersState.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
       value: stakeholder.ratings[stakeholder.ratings.length -1].power,
-      name: stakeholder.name}})
+      name: stakeholder.name,
+      title: stakeholder.title,
+      alias: stakeholder.alias}})
     })
     // set
   })
@@ -171,7 +173,7 @@ componentDidMount() {
   .then(chartData => this.setState({ chartData:
     this.state.stakeholders.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
     value: stakeholder.ratings[stakeholder.ratings.length -1].power,
-    name: stakeholder.name, alias: stakeholder.alias}})
+    name: stakeholder.name, title: stakeholder.title, alias: stakeholder.alias}})
     }))
 }
 
@@ -215,8 +217,6 @@ componentDidMount() {
     chart.draw();
 
 
-
-
     // const stakeholder_data = anychart.data.set(this.state.stakeholder.data)
     const dataSet = anychart.data.set(this.state.chartData);
 
@@ -232,44 +232,20 @@ componentDidMount() {
       .anchor('left-center')
       .offsetX(2)
       .offsetY(2)
-      .format('{%Name} + {%Alias}')
-      // .format('{%Alias}');
-    // disabled tooltip
+      .format('{%Name}')
+
+    // enabled tooltip
     markers.tooltip(true);
 
     chart.quarters(quarters);
 
-//
-//     chart.listen('pointsHover', function(e) {
-//       let item = dataSet[e.currentPoint.index];
-//       putDataInTooltip(item);
-//     });
-//
-//     function putDataInTooltip(item) {
-//       let description = ''
-//         description += '<br/>' + item['name'];
-//       ('.custom-tooltip .description').html(description)
-// }
-
-chart.tooltip()
-      .useHtml(true)
-      .fontColor('#fff')
-      .format(function () {
-            return this.getData('data') + '<br/>' +
-                          'Power: <span style="color: #d2d2d2; font-size: 12px">' +
-                          this.getData('value') + '</span></strong><br/>' +
-                          'Interest: <span style="color: #d2d2d2; font-size: 12px">' +
-                          this.getData('x') + '</span></strong><br/>' +
-                          'Positivity: <span style="color: #d2d2d2; font-size: 12px">' +
-                          this.getData('size') + ' min.</span></strong>';
-
-              });
 
 chart.tooltip().format(function() {
 console.log(this);
-return 'Interest: ' + this.x , +
+return 'Interest: ' + this.x +
 '\nPower: ' + this.value +
 '\n ' + this.getData('name') +
+'\n ' + this.getData('title') +
 '\n ' + this.getData('alias')
 });
 

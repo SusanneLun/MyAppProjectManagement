@@ -175,13 +175,6 @@ componentDidMount() {
 
 
 
-// function = () =>
-// this.setState({
-//   chartData: {
-//     x: this.state.stakeholders.map(stakeholder => stakeholder.ratings.power), value: this.state.stakeholders.map(stakeholder.ratings.interest), name: this.state.stakeholders.map(stakeholder.name)}
-// })
-
-
 
   render() {
 

@@ -13,6 +13,8 @@ import APILogin from './APILogin'
 
 import chartData from './ChartData'
 
+
+
 const quarters = {
   rightTop: {
     title: {
@@ -146,7 +148,9 @@ handleRating = (stakeholder, newRatings) => {
       stakeholders: newStakeholdersState,
       chartData: newStakeholdersState.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
       value: stakeholder.ratings[stakeholder.ratings.length -1].power,
-      name: stakeholder.name}})
+      name: stakeholder.name,
+      title: stakeholder.title,
+      alias: stakeholder.alias}})
     })
     // set
   })
@@ -169,7 +173,7 @@ componentDidMount() {
   .then(chartData => this.setState({ chartData:
     this.state.stakeholders.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
     value: stakeholder.ratings[stakeholder.ratings.length -1].power,
-    name: stakeholder.name}})
+    name: stakeholder.name, title: stakeholder.title, alias: stakeholder.alias}})
     }))
 }
 
@@ -183,7 +187,10 @@ componentDidMount() {
 
 
 
+
   render() {
+
+
 
     let chart = anychart.quadrant();
     let yTitle = chart.yAxis().title();
@@ -210,9 +217,12 @@ componentDidMount() {
     chart.draw();
 
 
+    // const stakeholder_data = anychart.data.set(this.state.stakeholder.data)
     const dataSet = anychart.data.set(this.state.chartData);
 
     var markers = chart.marker(dataSet);
+
+
     // set labels settings
     markers.labels()
       .enabled(true)
@@ -222,11 +232,22 @@ componentDidMount() {
       .anchor('left-center')
       .offsetX(2)
       .offsetY(2)
-      .format('{%Name}');
-    // disabled tooltip
+      .format('{%Name}')
+
+    // enabled tooltip
     markers.tooltip(true);
 
     chart.quarters(quarters);
+
+
+chart.tooltip().format(function() {
+console.log(this);
+return 'Interest: ' + this.x +
+'\nPower: ' + this.value +
+'\n ' + this.getData('name') +
+'\n ' + this.getData('title') +
+'\n ' + this.getData('alias')
+});
 
     const { project_id } = this.props.match.params
 

@@ -27,28 +27,36 @@ const Navbar = () =>
       activeStyle={{
         background: 'purple'
       }}
-    >PM Influence</NavLink>
+    >
+    <h3>PM Influence</h3>
+    </NavLink>
     <NavLink
     to="/signin"
     exact
     style={link}
     activeStyle={{
       background: 'purple'
-    }}>Sign in</NavLink>
+    }}>
+    <h3>Sign in</h3>
+    </NavLink>
     <NavLink
     to="/signup"
     exact
     style={link}
     activeStyle={{
       background: 'purple'
-    }}>Sign up</NavLink>
+    }}>
+    <h3>Sign up</h3>
+    </NavLink>
     <NavLink
     to="/projects"
     exact
     style={link}
     activeStyle={{
       background: 'purple'
-    }}>My Projects</NavLink>
+    }}>
+    <h3>My Projects</h3>
+    </NavLink>
     <NavLink
       to="/how_to_rate"
       exact
@@ -56,7 +64,9 @@ const Navbar = () =>
       activeStyle={{
         background: 'purple'
       }}
-    >How To Rate</NavLink>
+    >
+    <h3>How To Rate</h3>
+    </NavLink>
   </div>;
 
 

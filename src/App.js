@@ -13,6 +13,7 @@ import UserProjects from './UserProjects'
 import SignUpForm from './SignUpForm'
 import SupportChart from './SupportChart'
 import HowToRate from './HowToRate'
+import AliasChart from './AliasChart'
 
 // import {StyleSheet, View, WebView} from 'react-native';
 
@@ -65,6 +66,8 @@ return (
               <UserProjects {...routerProps} user={user} username={username} />} />
               <Route exact path="/PI_Chart/:id" component={routerProps =>
               <PIChart {...routerProps} username={username} />} />
+              <Route exact path="/alias_chart/:id" component={routerProps =>
+              <AliasChart {...routerProps} username={username} />} />
               <Route exact path="/signin" component={routerProps =>
               <SignInForm {...routerProps} signin={signin}/>} />
               <Route exact path="/signup" component={routerProps =>

@@ -25,6 +25,11 @@ return (
         <Button compact color='purple'>
         View Support Chart </Button>
         </Link>
+        <Link to={`/alias_chart/${project.id}`}>
+          <p></p>
+        <Button compact color='purple'>
+        View Alias PI Chart </Button>
+        </Link>
       </Card.Header>
     </Card.Content>
   </Card>

@@ -9,8 +9,6 @@ import anychart from 'anychart'
 import APILogin from './APILogin'
 
 
-// import {StyleSheet, View, WebView} from 'react-native';
-
 import chartData from './ChartData'
 
 
@@ -130,7 +128,7 @@ handleRating = (stakeholder, newRatings) => {
 
 
   fetch(`http://localhost:3000/stakeholders/${stakeholder.id}/ratings`, {
-  method: 'POST',
+  method: 'GET',
   headers: {
     'Content-Type': 'application/json',
   },

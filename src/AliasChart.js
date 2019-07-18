@@ -46,25 +46,6 @@ constructor() {
     }
 }
 
-// getChartData = () => {
-//   fetch(`http://localhost:3000/stakeholders/${stakeholder.id}/ratings`, {
-// method: 'POST',
-// headers: {
-//   'Content-Type': 'application/json',
-// },
-// body: JSON.stringify(),
-// }).then(res => res.json())
-// .then(
-//   this.setState({
-//     stakeholders: [],
-//     chartData: stakeholders.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
-//     value: stakeholder.ratings[stakeholder.ratings.length -1].power,
-//     name: stakeholder.name,
-//     title: stakeholder.title,
-//     alias: stakeholder.alias}})
-//   })
-// )
-// }
 
 componentDidMount() {
   const { id } = this.props.match.params

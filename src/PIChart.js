@@ -128,7 +128,7 @@ handleRating = (stakeholder, newRatings) => {
 
 
   fetch(`http://localhost:3000/stakeholders/${stakeholder.id}/ratings`, {
-  method: 'GET',
+  method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },

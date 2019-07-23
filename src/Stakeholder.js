@@ -49,15 +49,16 @@ onHandleRating = (event) => {
 // }
 
 render() {
-  const { name, title, alias, ratings, id } = this.props.stakeholder
+  const { name, title, alias, ratings } = this.props.stakeholder
+  const stakeholder_id = this.props.stakeholder.id
+  const id = this.props.project_id
 
   return (
-
 
     <Card color='purple' className={"stakeholder_card"}>
       <Card.Content >
         <Card.Header key={id} >
-          <Link to={`/manage_stakeholder/${id}/project/${id}`}>{name}</Link>
+          <Link to={`/manage_stakeholder/${stakeholder_id}/project/${id}`}>{name}</Link>
           <Card.Meta>
             <span className='date'> {alias}</span>
           </Card.Meta>

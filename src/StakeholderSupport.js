@@ -9,6 +9,7 @@ class StakeholderSupport extends Component {
     super()
     this.state = {
       positivity: '',
+      strategy: ''
     }
     }
 

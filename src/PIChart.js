@@ -250,7 +250,8 @@ return (
           {
             this.state.selectedStakeholder
             ?
-            <Stakeholder />
+            <Stakeholder 
+            project_id={this.props.match.params.id}/>
             :
             <StakeholderContainer stakeholders={this.state.stakeholders}
                               selectedStakeholder={this.selectedStakeholder}

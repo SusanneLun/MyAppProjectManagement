@@ -159,7 +159,8 @@ render() {
     <div className="App" class='stakeholders_wrapper'>
     {this.state.stakeholders.length > 0 ?
     <SupportContainer stakeholders={this.state.stakeholders}
-        handleRating={this.handleRating} />
+        handleRating={this.handleRating}
+      />
      : null}
     </div>
     <div className={"graph_section_wrapper"}>

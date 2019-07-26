@@ -57,7 +57,7 @@ assignStrategy = (stakeholder, newStrategy) => {
 
 render() {
 
-  const { name, alias, title, id, ratings, strategies } = this.props.stakeholder
+  const { name, alias, title, id, ratings, strategy } = this.props.stakeholder
 
   return (
 
@@ -82,6 +82,9 @@ render() {
           </div>
           <div className={"stakeholder_card__submit"}>
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
+          </div>
+          <div>
+          <span className='date'> {strategy}</span>
           </div>
 
         <Card.Content extra>

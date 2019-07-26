@@ -32,7 +32,8 @@ class ManageStakeholder extends Component {
         positivity: "",
         stakeholder: null,
         project: null,
-        ratings: null
+        ratings: null,
+        strategies: null
     }
   }
 

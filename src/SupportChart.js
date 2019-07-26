@@ -64,14 +64,12 @@ handleRating = (stakeholder, newRatings) => {
   // }))
 }
 
-assignStrategy = (stakeholder, newStrategy) => {
-  let assStrategy = {
-    strategy: stakeholder.strategy,
-    project_id: this.props.match.params.id
-  }
+addNewStrategy = (stakeholder, strategy) => {
+  let newStrategyState = [...this.state.stakeholder.strategy, strategy]
+  this.setState({
+  strategy: stakeholder.strategy,
+  })
 }
-
-
 
 
 componentDidMount() {

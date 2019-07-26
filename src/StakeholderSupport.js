@@ -28,6 +28,30 @@ onHandleRating = (event) => {
   })
 }
 
+assignStrategy = (stakeholder, newStrategy) => {
+  let assStrategy = {
+    strategy: stakeholder.strategy,
+    project_id: this.props.match.params.id
+  }
+
+  fetch(`http://localhost:3000/stakeholders/${stakeholder.id}/strategies`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(
+    {
+      strategy: this.state.stakeholder.strategy
+    }
+)
+}).then(res => res.json())
+.then(res => this.props.addNewStrategy(res))
+.then(this.setState({
+  strategy: this.state.stakeholder.strategy
+}
+))
+}
+
 
 
 render() {

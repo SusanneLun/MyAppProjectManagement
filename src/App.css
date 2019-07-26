@@ -205,9 +205,11 @@ html, body, #root, #bar-chart {
 .ui-container.stakeholders_list {
 
     height: 100%;
-    overflow: scroll;
+    float: right;
+    overflow-y: scroll;
     width:  300px;
 }
+
 
 .strategy_wrapper {
     width: calc(100vw - 350px);
@@ -217,6 +219,9 @@ html, body, #root, #bar-chart {
 .ui-container.strategy_list {
     display: flex;
     flex-wrap: wrap;
+    height: 50%;
+    overflow-y: scroll;
+    width: 500;
 }
 
 .ui-container.strategy_list > div {

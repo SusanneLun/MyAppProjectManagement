@@ -64,6 +64,12 @@ handleRating = (stakeholder, newRatings) => {
   // }))
 }
 
+assignStrategy = (stakeholder, newStrategy) => {
+  let assStrategy = {
+    strategy: stakeholder.strategy,
+    project_id: this.props.match.params.id
+  }
+}
 
 
 componentDidMount() {
@@ -74,7 +80,7 @@ componentDidMount() {
       this.state.stakeholders.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
         value: stakeholder.ratings[stakeholder.ratings.length -1].power,
         size: stakeholder.ratings[stakeholder.ratings.length -1].positivity,
-        name: stakeholder.name,
+        name: stakeholder.name
       }})
     }))
 }

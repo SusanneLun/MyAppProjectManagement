@@ -72,6 +72,8 @@ assignStrategy = (stakeholder, newStrategy) => {
 }
 
 
+
+
 componentDidMount() {
   const { id } = this.props.match.params
   APILogin.getProjectStakeholders(id)

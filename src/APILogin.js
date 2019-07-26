@@ -32,6 +32,10 @@ static getCategories () {
   return this.get(`http://localhost:3000/categories`)
 }
 
+static getStrategies () {
+  return this.get(`http://localhost:3000/strategies`)
+}
+
 static getStakeholderProjectInfo (stakeholder_id, id) {
   return this.get(`http://localhost:3000/stakeholder_project_info/${stakeholder_id}/${id}`)
 }

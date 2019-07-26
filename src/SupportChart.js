@@ -71,6 +71,12 @@ addNewStrategy = (stakeholder, strategy) => {
   })
 }
 
+updateFilter = newFilter => {
+  this.setState({
+    filter: newFilter
+  })
+}
+
 
 componentDidMount() {
   const { id } = this.props.match.params

@@ -41,7 +41,8 @@ assignStrategy = (stakeholder, newStrategy) => {
   },
   body: JSON.stringify(
     {
-      strategy: this.state.stakeholder.strategy
+      strategy: this.state.stakeholder.strategy,
+      project_id: this.props.match.params.id
     }
 )
 }).then(res => res.json())

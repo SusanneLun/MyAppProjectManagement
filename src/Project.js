@@ -18,17 +18,22 @@ return (
         <p></p>
         <Link to={`/PI_Chart/${project.id}`}>
         <Button compact color='purple'>
-        View PI Chart </Button>
+        PI Chart </Button>
         </Link>
         <Link to={`/support/${project.id}`}>
         <p></p>
         <Button compact color='purple'>
-        View Support Chart </Button>
+        Support Chart </Button>
         </Link>
         <Link to={`/alias_chart/${project.id}`}>
           <p></p>
         <Button compact color='purple'>
-        View Alias PI Chart </Button>
+        Alias PI Chart </Button>
+        </Link>
+        <Link to={`/alias_chart/${project.id}`}>
+          <p></p>
+        <Button compact color='black'>
+        Change Project </Button>
         </Link>
       </Card.Header>
     </Card.Content>

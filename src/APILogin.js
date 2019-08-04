@@ -24,6 +24,10 @@ static getUserProjects () {
   return this.get(`http://localhost:3000/user_projects`)
 }
 
+static getUserProject () {
+  return this.get(`http://localhost:3000/user_project`)
+}
+
 static getSupportRatings () {
   return this.get(`http://localhost:3000/stakeholders`)
 }

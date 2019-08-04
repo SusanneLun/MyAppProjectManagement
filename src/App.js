@@ -14,6 +14,7 @@ import SignUpForm from './SignUpForm'
 import SupportChart from './SupportChart'
 import HowToRate from './HowToRate'
 import AliasChart from './AliasChart'
+import ManageProject from './ManageProject'
 
 // import {StyleSheet, View, WebView} from 'react-native';
 
@@ -81,6 +82,8 @@ return (
               <Route exact path="/manage_stakeholder/:stakeholder_id/project/:project_id" component={routerProps =>
                 <ManageStakeholder {...routerProps} username={username} />
               } />
+              <Route exact path="/manage_project/:id" component={routerProps =>
+                <ManageProject {...routerProps} username={username} /> } />
               <Route path="/" component={Home} />
             </Switch>
       </div>

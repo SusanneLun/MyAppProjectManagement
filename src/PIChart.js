@@ -250,7 +250,7 @@ return (
           {
             this.state.selectedStakeholder
             ?
-            <Stakeholder 
+            <Stakeholder
             project_id={this.props.match.params.id}/>
             :
             <StakeholderContainer stakeholders={this.state.stakeholders}
@@ -271,7 +271,7 @@ return (
               instance={chart}
               />
           </div>
-          <NewStakeholderForm project_id={this.props.match.params.id} addNewStakeholder={this.addNewStakeholder}/>
+          <NewStakeholderForm project_id={project_id} addNewStakeholder={this.addNewStakeholder}/>
         </div>
       </div>
     );

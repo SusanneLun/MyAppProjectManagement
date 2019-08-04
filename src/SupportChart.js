@@ -5,6 +5,8 @@ import SupportContainer from './SupportContainer'
 import Strategies from './Strategies'
 import AnyChart from 'anychart-react'
 import anychart from 'anychart'
+import SearchBar from './SearchBar'
+import NewStrategyAssign from './NewStrategyAssign'
 
 
 
@@ -184,6 +186,11 @@ render() {
       instance={chart}
       />
       </div>
+      <h3>
+      Find a stakeholder to manage strategies
+      </h3>
+      <SearchBar />
+      <NewStrategyAssign stakeholders={this.state.stakeholders}/>
       <Strategies />
       </div>
     </div>

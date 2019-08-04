@@ -4,6 +4,7 @@ import Project from './Project'
 import NewProject from './NewProject'
 import { Button } from 'semantic-ui-react'
 import App from './App.css'
+import ManageProject from './ManageProject'
 
 
 class UserProjects extends Component {
@@ -66,6 +67,9 @@ render () {
       {
         projects.map(project =>
           <Project key={project.id} project={project} />)
+      }
+      {
+        <ManageProject user={this.props.user} />
       }
           <NewProject user={this.props.user} addNewProject={this.addNewProject}
           showNewProjectForm={this.state.showNewProjectForm} showForm={this.showForm}

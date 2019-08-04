@@ -10,13 +10,12 @@ class ManageProject extends Component {
     super()
     this.state = {
       name: "",
-      description: "",
-      project: ""
+      description: ""
     }
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params
+    const { id } = this.state.project.id 
     APILogin.getUserProject(id)
     .then(project => this.setState({name: project.name,
     description: project.description}))
@@ -26,8 +25,8 @@ class ManageProject extends Component {
 render() {
   return (
     <div>
-    {project.name}
-    {project.description}
+    {this.state.project.name}
+    {this.state.project.description}
     </div>
   )
 }

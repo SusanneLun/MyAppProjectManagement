@@ -9,7 +9,6 @@ class NewStrategyAssign extends Component {
   constructor() {
     super()
       this.state = {
-        stakeholders: [],
         strategy: ""
 
       }

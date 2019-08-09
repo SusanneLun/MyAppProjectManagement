@@ -68,9 +68,7 @@ render () {
         projects.map(project =>
           <Project key={project.id} project={project} />)
       }
-      {
-        <ManageProject user={this.props.user} />
-      }
+
           <NewProject user={this.props.user} addNewProject={this.addNewProject}
           showNewProjectForm={this.state.showNewProjectForm} showForm={this.showForm}
           hideForm={this.hideForm}/>

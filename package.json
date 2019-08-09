@@ -6,7 +6,7 @@
     "4": "0.0.0",
     "@material-ui/core": "^4.3.0",
     "@material-ui/icons": "^4.2.1",
-    "anychart": "^8.6.0",
+    "anychart": "^8.7.0",
     "anychart-react": "^1.4.1",
     "graceful-fs": "^4.2.0",
     "lodash": "^4.17.15",

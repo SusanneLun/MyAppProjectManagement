@@ -15,7 +15,7 @@ class ManageProject extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.state.project.id 
+    const { id } = this.state.project.id
     APILogin.getUserProject(id)
     .then(project => this.setState({name: project.name,
     description: project.description}))
@@ -25,8 +25,8 @@ class ManageProject extends Component {
 render() {
   return (
     <div>
-    {this.state.project.name}
-    {this.state.project.description}
+    Hello World
+
     </div>
   )
 }

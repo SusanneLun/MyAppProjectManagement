@@ -84,6 +84,9 @@ render() {
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
           </div>
           <div>
+            <Card.Description>{strategy}</Card.Description>
+          </div>
+          <div>
           <span className='date'> {strategy}</span>
           </div>
 

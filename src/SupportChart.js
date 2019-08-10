@@ -6,7 +6,7 @@ import Strategies from './Strategies'
 import AnyChart from 'anychart-react'
 import anychart from 'anychart'
 import SearchBar from './SearchBar'
-import NewStrategyAssign from './NewStrategyAssign'
+import './App.css'
 
 
 
@@ -15,9 +15,12 @@ constructor() {
   super()
       this.state = {
         stakeholders: [],
+        filter: '',
         chartData: null
       }
 }
+
+
 
 
 handleRating = (stakeholder, newRatings) => {
@@ -76,6 +79,18 @@ addNewStrategy = (stakeholder, strategy) => {
 updateFilter = newFilter => {
   this.setState({
     filter: newFilter
+  })
+}
+
+deselectStakeholder = () => {
+  this.setState({
+    selectedStakeholder: null
+  })
+}
+
+selectStakeholder = (stakeholder) => {
+  this.setState({
+    selectedStakeholder: stakeholder
   })
 }
 
@@ -167,13 +182,24 @@ render() {
     '\n ' + this.getData('name');
     });
 
+const { project_id } = this.props.match.params
 
   return (
     <div className={"char_page"}>
     <div className="App" class='stakeholders_wrapper'>
     {this.state.stakeholders.length > 0 ?
     <SupportContainer stakeholders={this.state.stakeholders}
+    handleRating={this.handleRating}
+  />
+ : null}
+    {!this.state.selectedStakeholder && <SearchBar updateFilter={this.updateFilter}/>}
+    {
+      this.state.selectedStakeholder
+      ?
+    <SupportContainer stakeholders={this.state.stakeholders}
+        filter={this.state.filter}
         handleRating={this.handleRating}
+        projectId={project_id}
       />
      : null}
     </div>
@@ -190,7 +216,6 @@ render() {
       Find a stakeholder to manage strategies
       </h3>
       <SearchBar />
-      <NewStrategyAssign stakeholders={this.state.stakeholders}/>
       <Strategies />
       </div>
     </div>

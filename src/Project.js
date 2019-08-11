@@ -30,7 +30,7 @@ return (
         <Button compact color='purple'>
         Alias PI Chart </Button>
         </Link>
-        <Link to={`/alias_chart/${project.id}`}>
+        <Link to={`/manage_project/:id/${project.id}`}>
           <p></p>
         <Button compact color='black'>
         Change Project </Button>

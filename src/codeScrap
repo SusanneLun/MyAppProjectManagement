@@ -111,3 +111,6 @@ stakeholder.name &&
 
         .then(stakeholder => this.setState({ id: stakeholder.id, name: stakeholder.name, alias: stakeholder.alias, title: stakeholder.title,
           note: stakeholder.note}))
+
+
+  overflow-y: scroll;

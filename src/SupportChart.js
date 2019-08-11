@@ -186,10 +186,13 @@ const { project_id } = this.props.match.params
 
   return (
     <div className={"char_page"}>
-    <div className="App" class='stakeholders_wrapper'>
+    <div className={"stakeholders_wrapper"}>
     {this.state.stakeholders.length > 0 ?
     <SupportContainer stakeholders={this.state.stakeholders}
-    handleRating={this.handleRating}
+                      selectedStakeholder={this.selectedStakeholer}
+                      filter={this.state.filter}
+                      handleRating={this.handleRating}
+                      projectId={project_id}
   />
  : null}
 
@@ -206,17 +209,16 @@ const { project_id } = this.props.match.params
       <h3>
       Find a stakeholder to manage strategies
       </h3>
+      <div className={"stakeholders_wrapper"}>
       {!this.state.selectedStakeholder && <SearchBar updateFilter={this.updateFilter}/>}
       {
         this.state.selectedStakeholder
         ?
-      <SupportContainer stakeholders={this.state.stakeholders}
-          filter={this.state.filter}
-          handleRating={this.handleRating}
-          projectId={project_id}
-        />
-       : null}
+        <StakeholderSupport />
+        :
+        null}
       <Strategies />
+      </div>
       </div>
     </div>
   )

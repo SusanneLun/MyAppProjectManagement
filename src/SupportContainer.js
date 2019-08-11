@@ -5,12 +5,12 @@ import StakeholderSupport from './StakeholderSupport'
 class SupportContainer extends Component {
 
   render() {
-
-  return (
-
-    <div className="ui-container stakeholders_list" >
+    const filteredStakeholders = this.props.stakeholders
+    .filter(stakeholder => stakeholder.name && stakeholder.name.toLowerCase().includes(this.props.filter.toLowerCase()))
+    return (
+    <div className="ui-container stakeholders_list" id="chart-page">
       {
-      this.props.stakeholders.map(stakeholder =>
+        filteredStakeholders.map(stakeholder =>
           <StakeholderSupport stakeholder={stakeholder}
             key={stakeholder.name}
             handleRating={this.props.handleRating}

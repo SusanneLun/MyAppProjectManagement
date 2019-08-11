@@ -9,7 +9,7 @@ class StakeholderSupport extends Component {
     super()
     this.state = {
       positivity: '',
-      strategy: ''
+      option: ''
     }
     }
 
@@ -57,7 +57,7 @@ assignStrategy = (stakeholder, newStrategy) => {
 
 render() {
 
-  const { name, alias, title, id, ratings, strategy } = this.props.stakeholder
+  const { name, alias, title, id, ratings, strategies } = this.props.stakeholder
 
   return (
 
@@ -83,11 +83,9 @@ render() {
           <div className={"stakeholder_card__submit"}>
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
           </div>
-          <div>
-            <Card.Description>{strategy}</Card.Description>
-          </div>
-          <div>
-          <span className='date'> {strategy}</span>
+          <div >
+            <label> Strategies: </label>
+            <p>{strategies[0] && strategies[strategies.length -1].option}</p>
           </div>
 
         <Card.Content extra>

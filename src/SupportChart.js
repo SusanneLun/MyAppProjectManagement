@@ -212,18 +212,9 @@ const { project_id } = this.props.match.params
       />
       </div>
       <h3>
-      Find a stakeholder to manage strategies
+      Choose a stakeholder to manage strategies
       </h3>
-      <div className={"search_stakeholders_wrapper"}>
-      {!this.state.selectedStakeholder && <SearchBar updateFilter={this.updateFilter}/>}
-      {
-        this.state.selectedStakeholder
-        ?
-        <StakeholderSupport />
-        :
-        null}
       <Strategies />
-      </div>
       </div>
     </div>
   )

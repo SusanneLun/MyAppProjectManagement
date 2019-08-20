@@ -114,3 +114,13 @@ stakeholder.name &&
 
 
   overflow-y: scroll;
+
+  <div className={"search_stakeholders_wrapper"}>
+  {!this.state.selectedStakeholder && <SearchBar updateFilter={this.updateFilter}/>}
+  {
+    this.state.selectedStakeholder
+    ?
+    <StakeholderSupport />
+    :
+    null}
+    

@@ -50,7 +50,7 @@ onHandleRating = (event) => {
 
 render() {
   const { name, title, alias, ratings } = this.props.stakeholder
-  const stakeholder_id = this.props.stakeholder.id
+  const stakeholder_id = this.props.id
   const id = this.props.project_id
 
   return (

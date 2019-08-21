@@ -7,6 +7,7 @@ import AnyChart from 'anychart-react'
 import anychart from 'anychart'
 import SearchBar from './SearchBar'
 import './App.css'
+import DropdownStakeholders from './DropdownStakeholders'
 
 
 
@@ -214,6 +215,7 @@ const { project_id } = this.props.match.params
       <h3>
       Choose a stakeholder to manage strategies
       </h3>
+      <DropdownStakeholders />
       <Strategies />
       </div>
     </div>

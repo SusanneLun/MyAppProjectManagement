@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 
 
@@ -10,7 +10,8 @@ class Stakeholder extends Component {
     this.state = {
       power: '',
       interest: '',
-      positivity: ''
+      positivity: '',
+      redirect: false
     }
     }
 
@@ -29,6 +30,13 @@ onHandleRating = (event) => {
     positivity: ''
   })
 }
+//
+// viewStakeholder = (event) => {
+//   const stakeholder_id = this.props.stakeholder.id
+//   const project_id = this.props.project_id
+//
+//  return `/manage_stakeholder/${stakeholder_id}/project/${project_id}`
+// }
 
 // newStakeholder = (event) => {
 //   event.preventDefault()
@@ -48,17 +56,28 @@ onHandleRating = (event) => {
 //
 // }
 
+
+viewStakeholder = (event) => {
+  // some action...
+  // then redirect
+  this.setState({redirect: true});
+}
+
 render() {
   const { name, title, alias, ratings } = this.props.stakeholder
-  const stakeholder_id = this.props.id
-  const id = this.props.project_id
+  const stakeholder_id = this.props.stakeholder.id
+  const project_id = this.props.project_id
+
+  if (this.state.redirect) {
+    return <Redirect push to={`/manage_stakeholder/${stakeholder_id}/project/${project_id}`} />;
+  }
 
   return (
 
     <Card color='purple' className={"stakeholder_card"}>
       <Card.Content >
-        <Card.Header key={id} >
-          <Link to={`/manage_stakeholder/${stakeholder_id}/project/${id}`}>{name}</Link>
+        <Card.Header >
+          <Link to={`/manage_stakeholder/${stakeholder_id}/project/${project_id}`}>{name}</Link>
           <Card.Meta>
             <span className='date'> {alias}</span>
           </Card.Meta>
@@ -84,6 +103,9 @@ render() {
           </div>
           <div className={"stakeholder_card__submit"}>
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
+          </div>
+          <div className={"stakeholder_card__submit"}>
+          <Button compact color='purple' onClick={this.viewStakeholder}>View</Button>
           </div>
 
         <Card.Content extra>

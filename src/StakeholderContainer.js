@@ -16,6 +16,7 @@ render() {
           key={stakeholder.name}
           handleRating={this.props.handleRating}
           selectStakeholder={this.props.selectStakeholder}
+          project_id={this.props.project_id}
           />)
     }
 

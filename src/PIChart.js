@@ -7,6 +7,7 @@ import './App.css';
 import AnyChart from 'anychart-react'
 import anychart from 'anychart'
 import APILogin from './APILogin'
+import ManageStakeholder from './ManageStakeholder'
 
 
 import chartData from './ChartData'
@@ -250,15 +251,15 @@ return (
           {
             this.state.selectedStakeholder
             ?
-            <Stakeholder
-            project_id={this.props.match.params.id}/>
+            <Stakeholder project_id={project_id}
+            />
             :
             <StakeholderContainer stakeholders={this.state.stakeholders}
                               selectedStakeholder={this.selectedStakeholder}
                               handleRating={this.handleRating}
                               filter={this.state.filter}
                               selectStakeholder={this.selectStakeholder}
-                              projectId={project_id}/>
+                              project_id={project_id}/>
           }
         </div>
 
@@ -274,6 +275,7 @@ return (
           <NewStakeholderForm project_id={project_id} addNewStakeholder={this.addNewStakeholder}/>
         </div>
       </div>
+  
     );
   }
 }

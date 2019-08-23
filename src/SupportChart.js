@@ -213,7 +213,7 @@ const { project_id } = this.props.match.params
       />
       </div>
       <h3>
-      Choose a stakeholder to manage strategies
+      Choose a project stakeholder to manage strategies
       </h3>
       <DropdownStakeholders />
       <Strategies />

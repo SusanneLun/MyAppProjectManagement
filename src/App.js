@@ -79,7 +79,7 @@ return (
               } />
               <Route exact path="/support/:id" component={routerProps =>
                 <SupportChart {...routerProps} username={username} /> } />
-              <Route exact path="/manage_stakeholder/:stakeholder_id/project/:project_id" component={routerProps =>
+              <Route exact path="/manage_stakeholder/:stakeholder_id/:project_id" component={routerProps =>
                 <ManageStakeholder {...routerProps} username={username} />
               } />
               <Route exact path="/manage_project/:id" component={routerProps =>

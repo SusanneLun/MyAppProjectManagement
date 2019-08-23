@@ -66,10 +66,10 @@ viewStakeholder = (event) => {
 render() {
   const { name, title, alias, ratings } = this.props.stakeholder
   const stakeholder_id = this.props.stakeholder.id
-  const project_id = this.props.project_id
+  const id = this.props.project_id
 
   if (this.state.redirect) {
-    return <Redirect push to={`/manage_stakeholder/${stakeholder_id}/project/${project_id}`} />;
+    return <Redirect push to={`/manage_stakeholder/${stakeholder_id}/${id}`} />;
   }
 
   return (
@@ -77,7 +77,7 @@ render() {
     <Card color='purple' className={"stakeholder_card"}>
       <Card.Content >
         <Card.Header >
-          <Link to={`/manage_stakeholder/${stakeholder_id}/project/${project_id}`}>{name}</Link>
+          <Link to={`/manage_stakeholder/${stakeholder_id}/${id}`}>{name}</Link>
           <Card.Meta>
             <span className='date'> {alias}</span>
           </Card.Meta>

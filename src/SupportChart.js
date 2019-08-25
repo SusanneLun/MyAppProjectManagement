@@ -215,7 +215,7 @@ const { project_id } = this.props.match.params
       <h3>
       Choose a project stakeholder to manage strategies
       </h3>
-      <DropdownStakeholders />
+      <DropdownStakeholders stakeholders={this.state.stakeholders}/>
       <Strategies />
       </div>
     </div>

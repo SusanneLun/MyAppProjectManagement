@@ -8,8 +8,6 @@ import AnyChart from 'anychart-react'
 import anychart from 'anychart'
 import APILogin from './APILogin'
 import ManageStakeholder from './ManageStakeholder'
-
-
 import chartData from './ChartData'
 
 
@@ -275,7 +273,7 @@ return (
           <NewStakeholderForm project_id={project_id} addNewStakeholder={this.addNewStakeholder}/>
         </div>
       </div>
-  
+
     );
   }
 }

@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { Button, Card } from 'semantic-ui-react'
+import { Button, Card, Select, Form } from 'semantic-ui-react'
 import { Link, Redirect } from 'react-router-dom'
 
 
+const options = [
+  { key: "1", text: '1',value: 1 },
+  { key: "2", text: '2',value: 2 },
+  { key: "3", text: '3', value: 3 },
+  { key: "4", text: '4', value: 4 },
+  { key: "5", text: '5', value: 5 },
+  { key: "6", text: '6', value: 6 },
+  { key: "7", text: '7', value: 7 },
+  { key: "8", text: '8', value: 8 },
+  { key: "9", text: '9', value: 9 },
+  { key: "10", text: '10', value: 10 },
+]
 
 class Stakeholder extends Component {
   constructor() {
@@ -15,12 +27,16 @@ class Stakeholder extends Component {
     }
     }
 
-ratingField = (event) => {
-  const newRatings = event.target.value
-    this.setState({
-      [event.target.name]: newRatings
-    })
-  }
+// ratingField = (event) => {
+//   const newRatings = event.target.value
+//     this.setState({
+//       [event.target.name]: newRatings
+//     })
+//   }
+
+handleNumChange = (event, data) => {
+  this.setState({ [data.name]: data.value })
+}
 
 onHandleRating = (event) => {
   this.props.handleRating(this.props.stakeholder, this.state)
@@ -84,13 +100,17 @@ render() {
           <Card.Description>{title}</Card.Description>
         </Card.Header>
 
-        </Card.Content>
+        </Card.Content >
+        <Form.Group widths='equal'>
           <div className={"stakeholder_card__input"}>
             <label> Power Score: {ratings && ratings[ratings.length -1].power}</label>
-            <input type="text-field"
+            <Select name="power"
+              type="number"
+              options={options}
               placeholder='Change..'
-              name="power" value={this.state.power}
-              onChange={this.ratingField}/>
+              onChange={this.handleNumChange}
+              value={this.state.value}
+              />
           </div>
           <div className={"stakeholder_card__input"}>
             <label> Interest Score: {ratings && ratings[ratings.length -1].interest}</label>
@@ -107,6 +127,7 @@ render() {
           <div className={"stakeholder_card__submit"}>
           <Button compact color='purple' onClick={this.viewStakeholder}>View</Button>
           </div>
+          </Form.Group>
 
         <Card.Content extra>
     </Card.Content>

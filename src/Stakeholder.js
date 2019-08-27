@@ -27,12 +27,12 @@ class Stakeholder extends Component {
     }
     }
 
-// ratingField = (event) => {
-//   const newRatings = event.target.value
-//     this.setState({
-//       [event.target.name]: newRatings
-//     })
-//   }
+ratingField = (event) => {
+  const newRatings = event.target.value
+    this.setState({
+      [event.target.name]: newRatings
+    })
+  }
 
 handleNumChange = (event, data) => {
   this.setState({ [data.name]: data.value })

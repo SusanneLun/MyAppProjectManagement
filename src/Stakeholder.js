@@ -22,8 +22,7 @@ class Stakeholder extends Component {
     this.state = {
       power: '',
       interest: '',
-      positivity: '',
-      redirect: false
+      positivity: ''
     }
     }
 
@@ -84,10 +83,6 @@ render() {
   const stakeholder_id = this.props.stakeholder.id
   const id = this.props.project_id
 
-  if (this.state.redirect) {
-    return <Redirect push to={`/manage_stakeholder/${stakeholder_id}/${id}`} />;
-  }
-
   return (
 
     <Card color='purple' className={"stakeholder_card"}>
@@ -104,12 +99,11 @@ render() {
         <Form.Group widths='equal'>
           <div className={"stakeholder_card__input"}>
             <label> Power Score: {ratings && ratings[ratings.length -1].power}</label>
-            <Select name="power"
-              type="number"
-              options={options}
+            <input name="power"
+              type="text-field"
               placeholder='Change..'
-              onChange={this.handleNumChange}
-              value={this.state.value}
+              value={this.state.power}
+              onChange={this.ratingField}
               />
           </div>
           <div className={"stakeholder_card__input"}>

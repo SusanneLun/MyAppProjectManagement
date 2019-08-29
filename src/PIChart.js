@@ -240,7 +240,6 @@ return 'Interest: ' + this.x +
 '\n ' + this.getData('alias')
 });
 
-    const { project_id } = this.props.match.params
 
 return (
       <div className="char_page">
@@ -249,7 +248,7 @@ return (
           {
             this.state.selectedStakeholder
             ?
-            <Stakeholder project_id={project_id}
+            <Stakeholder project_id={this.props.match.params.id}
             />
             :
             <StakeholderContainer stakeholders={this.state.stakeholders}
@@ -257,7 +256,7 @@ return (
                               handleRating={this.handleRating}
                               filter={this.state.filter}
                               selectStakeholder={this.selectStakeholder}
-                              project_id={project_id}/>
+                              project_id={this.props.match.params.id}/>
           }
         </div>
 
@@ -270,7 +269,7 @@ return (
               instance={chart}
               />
           </div>
-          <NewStakeholderForm project_id={project_id} addNewStakeholder={this.addNewStakeholder}/>
+          <NewStakeholderForm project_id={this.props.match.params.id} addNewStakeholder={this.addNewStakeholder}/>
         </div>
       </div>
 

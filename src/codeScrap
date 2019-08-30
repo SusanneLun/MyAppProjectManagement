@@ -123,4 +123,10 @@ stakeholder.name &&
     <StakeholderSupport />
     :
     null}
-    
+
+getStakeholderProjectInfo = () => {
+
+stakeholder: null,
+project: null,
+ratings: null,
+strategies: null

@@ -29,32 +29,31 @@ class ManageStakeholder extends Component {
         note: "",
         power: "",
         interest: "",
-        positivity: "",
-        stakeholder: null,
-        project: null,
-        ratings: null,
-        strategies: null
+        positivity: ""
+
     }
   }
 
+  // componentDidMount() {
+  //     const { id } = this.props.match.params
+  //     APILogin.getProjectStakeholders(id)
+  //       .then(stakeholder => this.setState({ name: stakeholder.name, alias: stakeholder.alias, title: stakeholder.title,
+  //         note: stakeholder.note}))
+  //     this.getStakeholderProjectInfo()
+  // }
   componentDidMount() {
-      const { id } = this.props.match.params
-      const { stakeholder_id } = this.state.id
-      APILogin.getProjectStakeholders(id)
-        .then(stakeholder => this.setState({ name: stakeholder.name, alias: stakeholder.alias, title: stakeholder.title,
-          note: stakeholder.note}))
-      this.getStakeholderProjectInfo()
-  }
-
-  getStakeholderProjectInfo = () => {
-    const { id } = this.props.match.params
-    const { stakeholder_id } = this.state.id
-    APILogin.getStakeholderProjectInfo(stakeholder_id, id)
+    const { stakeholder_id } = this.props.match.params
+    const { project_id } = this.props.match.params
+    APILogin.getStakeholderProjectInfo(stakeholder_id, project_id)
       .then(stakeholder => {
         if (stakeholder.error) {
           alert(stakeholder.error)
         } else {
           this.setState({
+            name: stakeholder.name,
+            alias: stakeholder.alias,
+            title: stakeholder.title,
+            note: stakeholder.note,
             power: stakeholder.ratings[stakeholder.ratings.length -1].power,
             interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
             positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity

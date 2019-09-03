@@ -36,8 +36,12 @@ static getStrategies () {
   return this.get(`http://localhost:3000/strategies`)
 }
 
-static getStakeholderProjectInfo (stakeholder_id, id) {
-  return this.get(`http://localhost:3000/stakeholder_project_info/${stakeholder_id}/${id}`)
+static getStakeholderProjectInfo (stakeholder_id, project_id) {
+  return this.get(`http://localhost:3000/stakeholder_project_info/${stakeholder_id}/${project_id}`)
+}
+
+static getStakeholder (stakeholder_id) {
+  return this.get(`http://localhost:3000/stakeholders/${stakeholder_id}`)
 }
 
 static getProjectStakeholders (id) {

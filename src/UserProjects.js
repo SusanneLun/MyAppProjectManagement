@@ -63,7 +63,7 @@ render () {
     <div className='project_list'>
 
       { projects.length === 0 && <p>You have not registered any projects yet.
-        Please use the form below to register your first project.</p>}
+        Please click on Create New Project to register your first project.</p>}
       {
         projects.map(project =>
           <Project key={project.id} project={project} />)

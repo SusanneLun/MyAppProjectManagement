@@ -130,3 +130,12 @@ stakeholder: null,
 project: null,
 ratings: null,
 strategies: null
+
+{
+  if (stakeholder.error) {
+    alert(stakeholder.error)
+  } else {
+
+
+  const { stakeholder_id } = this.props.match.params
+  const { project_id } = this.props.match.params

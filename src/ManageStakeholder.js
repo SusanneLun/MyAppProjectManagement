@@ -22,7 +22,6 @@ class ManageStakeholder extends Component {
   constructor() {
     super()
       this.state = {
-        id: "",
         name: "",
         title: "",
         alias: "",
@@ -41,27 +40,26 @@ class ManageStakeholder extends Component {
   //         note: stakeholder.note}))
   //     this.getStakeholderProjectInfo()
   // }
-  componentDidMount() {
-    const { stakeholder_id } = this.props.match.params
-    const { project_id } = this.props.match.params
-    APILogin.getStakeholderProjectInfo(stakeholder_id, project_id)
-      .then(stakeholder => {
-        if (stakeholder.error) {
-          alert(stakeholder.error)
-        } else {
-          this.setState({
-            name: stakeholder.name,
-            alias: stakeholder.alias,
-            title: stakeholder.title,
-            note: stakeholder.note,
-            power: stakeholder.ratings[stakeholder.ratings.length -1].power,
-            interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
-            positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
-          })
-        }
-      })
 
-  }
+
+
+  componentDidMount() {
+
+     const { match: { params } } = this.props
+
+    APILogin.getStakeholderProjectInfo(params.stakeholder_id, params.project_id)
+      .then(stakeholder => this.setState({
+        name: stakeholder.stakeholder.name,
+        alias: stakeholder.stakeholder.alias,
+        title: stakeholder.stakeholder.title,
+        note: stakeholder.stakeholder.note,
+        power: stakeholder.ratings[stakeholder.ratings.length -1].power,
+        interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
+        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
+          })
+      )
+}
+
 
   handleChange = (event, value) => {
   this.setState({ [event.target.name]: event.target.value })
@@ -136,13 +134,14 @@ handleDelete = (stakeholder) => {
 }
 
 
-
-
 render() {
+
+  const { stakeholder_id } = this.props.match.params
+  const { project_id } = this.props.match.params
 
 return (
 <div >
-  <Form  onSubmit={() => this.handleSubmit(this.props.match.params.id, this.state)} style={{marginLeft: 50, top: 80}}>
+  <Form  onSubmit={() => this.handleSubmit(this.props.match.params.project_id, this.state)} style={{marginLeft: 50, top: 80}}>
   <p></p>
   <p></p>
   <h3>View And Edit Stakeholder</h3>
@@ -166,7 +165,7 @@ return (
     <p></p>
     <div className={"new_stakeholder_submit"}>
     <Form.Button type="submit"  color="purple"> Update Stakeholder </Form.Button>
-    <Form.Button type="delete"  color="red" onClick={() => this.handleDelete(this.props.match.params.id, this.state)}> Delete Stakeholder </Form.Button>
+    <Form.Button type="delete"  color="red" onClick={() => this.handleDelete(this.props.match.params.project_id, this.state)}> Delete Stakeholder </Form.Button>
     </div>
 </Form>
 

@@ -12,17 +12,18 @@ constructor() {
 }
 
 
-render() {
-  
-  const options = this.props.stakeholders.name
 
+
+render() {
+
+  const options = this.props.stakeholders.name
 
   return(
   <div>
   <Form.Group widths='equal' >
     <div className={"new_stakeholder_input"}>
       <label>Select Stakeholder</label>
-      <Select name="name" label="Name" type="text" options={options}
+      <Select name="name" label="Name" type="text" list={this.props.stakeholders.name}
           placeholder="Select"
               onChange={this.handleNumChange} value={this.state.value} />
     </div>

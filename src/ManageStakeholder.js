@@ -133,9 +133,10 @@ class ManageStakeholder extends Component {
 
 
 
-handleDelete = (stakeholder) => {
-  const { id } = this.props.match.params
-  fetch(`http://localhost:3000/stakeholders/${id}`, {
+handleDelete = (stakeholder, project) => {
+  const { match: { params } } = this.props
+
+  fetch(`http://localhost:3000/stakeholder_project_info/${params.stakeholder_id}/${params.project_id}`, {
     method: 'DELETE',
     headers: {
         'Content-Type': 'application/json'

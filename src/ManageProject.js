@@ -15,7 +15,7 @@ class ManageProject extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.state.project.id
+    const { id } = this.props.match.params
     APILogin.getUserProject(id)
     .then(project => this.setState({name: project.name,
     description: project.description}))

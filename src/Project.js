@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 const Project = ({ project }) => {
 
-
 return (
+
   <Card color='purple' className={"stakeholder_card"}>
     <Card.Content >
       <Card.Header>
@@ -30,7 +30,7 @@ return (
         <Button compact color='purple'>
         Alias PI Chart </Button>
         </Link>
-        <Link to={`/manage_project/:id/${project.id}`}>
+        <Link to={`/manage_project/${project.id}`}>
           <p></p>
         <Button compact color='black'>
         Change Project </Button>

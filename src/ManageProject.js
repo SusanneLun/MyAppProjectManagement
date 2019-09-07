@@ -25,7 +25,11 @@ class ManageProject extends Component {
 render() {
   return (
     <div>
-    Hello World
+
+    <Form.Group widths='equal' >
+      <Form.Input  name="name" fluid label="Name" type="text" onChange={event => this.handleChange(event)} value={this.state.name} />
+      <Form.Input name="description" fluid label='Description' type="text" onChange={this.handleChange}  value={this.state.description}/>
+    </Form.Group>
 
     </div>
   )

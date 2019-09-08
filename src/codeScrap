@@ -139,3 +139,9 @@ strategies: null
 
   const { stakeholder_id } = this.props.match.params
   const { project_id } = this.props.match.params
+
+
+  <Form.Group widths='equal' >
+    <Form.Input  name="name" fluid label="Name" type="text" onChange={event => this.handleChange(event)} value={this.state.name} />
+    <Form.Input name="description" fluid label='Description' rows="5" type="text" onChange={this.handleChange}  value={this.state.description}/>
+  </Form.Group>

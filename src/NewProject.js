@@ -54,7 +54,7 @@ render() {
       </Form.Group>
 
       <div class="ui buttons" className={"new_project_submit"}>
-        <Button class="ui button" onClick={this.props.hideForm}>Cancel</Button>
+        <Button className="ui button" onClick={this.props.hideForm}>Cancel</Button>
         <div class="or"></div>
         <Button class="ui positive button" color="purple" onClick={this.handleSubmit}>Save</Button>
       </div>

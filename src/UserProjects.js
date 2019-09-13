@@ -75,7 +75,7 @@ render () {
 
     </div>
     <div id="new_project_button">
-    <Button class="ui toggle button" onClick={this.showForm} color="purple" >
+    <Button className="ui toggle button" onClick={this.showForm} color="purple" >
     Create New Project
     </Button>
     </div>

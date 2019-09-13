@@ -83,7 +83,8 @@ return (
                 <ManageStakeholder {...routerProps} username={username} />
               } />
               <Route exact path="/manage_project/:id" component={routerProps =>
-                <ManageProject {...routerProps} username={username} /> } />
+                <ManageProject {...routerProps} username={username} />
+              } />
               <Route path="/" component={Home} />
             </Switch>
       </div>

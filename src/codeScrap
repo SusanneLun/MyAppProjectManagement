@@ -158,3 +158,29 @@ strategies: null
     </textarea>
   </div>
   </div>
+
+
+  handleSubmit = (project, updatedValues) => {
+
+      const { match: { params } } = this.props
+
+      let updatedValue = {
+          name: updatedValues.name === "" ? project.name : updatedValues.name,
+          description: updatedValues.description === "" ? project.description : updatedValues.description,
+          id: params.id
+      }
+
+      fetch(`http://localhost:3000/user_project/${params.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify( updatedValue ),
+        }).then(res => res.json())
+        .then(project => {
+          this.setState({
+            name: project.name,
+            description: project.description,
+            id: params.id
+            })})
+      }

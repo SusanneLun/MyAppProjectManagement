@@ -27,28 +27,31 @@ class ManageProject extends Component {
 
     }
 
-      handleSubmit = (project, updatedValues) => {
-        const { match: { params } } = this.props
+handleSubmit = (project, updatedValues) => {
 
-        let updatedValue = {
-          name: updatedValues.name === "" ? project.name : updatedValues.name,
-          description: updatedValues.description === "" ? project.description : updatedValues.description,
-          id: params.id
-      }
+    const { match: { params } } = this.props
 
-        fetch(`http://localhost:3000/user_project/${params.id}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify( updatedValue ),
-        }).then(res => res.json())
-        .then(project => {
-          this.setState({
-            name: project.name,
-            description: project.description
-            })})
-      }
+    let updatedValue = {
+        name: updatedValues.name === "" ? project.name : updatedValues.name,
+        description: updatedValues.description === "" ? project.description : updatedValues.description,
+        id: params.id
+    }
+
+      fetch(`http://localhost:3000/user_project/${params.id}}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( updatedValue ),
+      })
+      .then(res => res.json())
+      .then(project => {this.setState({
+          name: project.name,
+          description: project.description,
+          id: params.id})})
+    }
+
+
 
 render() {
   const { id } = this.props.match.params

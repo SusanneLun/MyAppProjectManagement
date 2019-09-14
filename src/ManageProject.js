@@ -10,8 +10,7 @@ class ManageProject extends Component {
     super()
     this.state = {
       name: "",
-      description: "",
-      id: ""
+      description: ""
     }
   }
 
@@ -33,7 +32,8 @@ class ManageProject extends Component {
 
         let updatedValue = {
           name: updatedValues.name === "" ? project.name : updatedValues.name,
-          title: updatedValues.description === "" ? project.description : updatedValues.description,
+          description: updatedValues.description === "" ? project.description : updatedValues.description,
+          id: params.id
       }
 
         fetch(`http://localhost:3000/user_project/${params.id}`, {

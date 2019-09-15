@@ -16,14 +16,14 @@ constructor() {
 
 render() {
 
-  const options = this.props.stakeholders.name
+  let options = this.props.stakeholders.map(stakeholder => {return stakeholder.name})
 
   return(
   <div>
   <Form.Group widths='equal' >
     <div className={"new_stakeholder_input"}>
       <label>Select Stakeholder</label>
-      <Select name="name" label="Name" type="text" list={this.props.stakeholders.name}
+      <Select name="name" label="Name" type="text" options={options}
           placeholder="Select"
               onChange={this.handleNumChange} value={this.state.value} />
     </div>

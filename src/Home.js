@@ -31,9 +31,13 @@ const Home = () => {
       <br/>watching them appear
       live in the Power/Interest chart.</ol>
       <p></p>
-      <ol>4. Apply influence strategies for stakeholders that need influencing.</ol>
+      <ol>4. View your stakeholders support position in the
+      Support Chart and decide on
+      <br/>strategies for influencing where necessary.</ol>
       <p></p>
-      <ol>5. Change ratings or any other stakeholder information as your project progresses.</ol>
+      <ol>5. Apply influence strategies for stakeholders that need influencing.</ol>
+      <p></p>
+      <ol>6. Change ratings or any other stakeholder information as your project progresses.</ol>
       </h4>
       </ul>
       </p>

@@ -249,6 +249,7 @@ html, body, #root, #bar-chart {
   padding-left: 10em;
   padding-top: 5em;
   padding-right: 15em;
+  width: 70%;
 }
 
 .project_list {

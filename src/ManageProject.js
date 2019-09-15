@@ -43,12 +43,29 @@ handleSubmit = (project, updatedValues) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify( updatedValue ),
-      })
-      .then(res => res.json())
+      }).then(res => res.json())
       .then(project => {this.setState({
           name: project.name,
           description: project.description,
           id: params.id})})
+    }
+
+    handleDelete = (id) => {
+      const { match: { params } } = this.props
+
+      let currentProject = {
+        project_id: params.id
+      }
+
+      fetch(`http://localhost:3000/user_project/${params.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ currentProject })
+      })
+      .then(res => res.json())
+      .then(() => this.props.history.go(-1))
     }
 
 

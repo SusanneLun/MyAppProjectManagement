@@ -184,3 +184,5 @@ strategies: null
             id: params.id
             })})
       }
+
+      .then(() => this.props.history.go(-1))

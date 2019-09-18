@@ -141,7 +141,7 @@ handleDelete = (stakeholder, project) => {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ stakeholder })
+    body: JSON.stringify({ stakeholder, project })
   })
   .then(() => this.props.history.go(-1))
 }

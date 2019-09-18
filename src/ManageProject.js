@@ -50,11 +50,13 @@ handleSubmit = (project, updatedValues) => {
           id: params.id})})
     }
 
-    handleDelete = (id) => {
+    handleDelete = (project) => {
       const { match: { params } } = this.props
 
-      let currentProject = {
-        project_id: params.id
+      let value = {
+        name: project.name,
+        description: project.description,
+        id: params.id
       }
 
       fetch(`http://localhost:3000/user_project/${params.id}`, {
@@ -62,19 +64,18 @@ handleSubmit = (project, updatedValues) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ currentProject })
+        body: JSON.stringify({ value })
       })
-      .then(res => res.json())
       .then(() => this.props.history.go(-1))
     }
 
 
 
 render() {
-  const { id } = this.props.match.params
+  const { match: { params } } = this.props
   return (
     <div>
-    <Form onSubmit={() => this.handleSubmit(id, this.state)} style={{marginLeft: 50, top: 80}}>
+    <Form onSubmit={() => this.handleSubmit(params.id, this.state)} style={{marginLeft: 50, top: 80}}>
     <h3>View And Edit Project</h3>
     <Form.Group widths='equal' >
       <Form.Input  name="name" fluid label="Name" type="text" onChange={event => this.handleChange(event)} value={this.state.name} />
@@ -83,7 +84,7 @@ render() {
 
     <div className={"new_stakeholder_submit"}>
     <Form.Button type="submit"  color="purple"> Update Project </Form.Button>
-    <Form.Button type="delete"  color="red" onClick={() => this.handleDelete(id)}> Delete Project </Form.Button>
+    <Form.Button type="delete"  color="red" onClick={() => this.handleDelete(params.id)}> Delete Project </Form.Button>
     </div>
     </Form>
 

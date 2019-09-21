@@ -186,3 +186,10 @@ strategies: null
       }
 
       .then(() => this.props.history.go(-1))
+
+      <input name="power"
+       type="text-field"
+       placeholder='Change..'
+       value={this.state.power}
+       onChange={this.ratingField}
+       />

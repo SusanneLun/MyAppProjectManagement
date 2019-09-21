@@ -99,12 +99,8 @@ render() {
         <Form.Group widths='equal'>
           <div className={"stakeholder_card__input"}>
             <label> Power Score: {ratings && ratings[ratings.length -1].power}</label>
-            <input name="power"
-              type="text-field"
-              placeholder='Change..'
-              value={this.state.power}
-              onChange={this.ratingField}
-              />
+            <Select name="power" placeholder="Select" options={options}
+             onChange={this.handleNumChange} value={this.state.power} />
           </div>
           <div className={"stakeholder_card__input"}>
             <label> Interest Score: {ratings && ratings[ratings.length -1].interest}</label>

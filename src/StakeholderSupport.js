@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
-import { Button, Card } from 'semantic-ui-react'
+import { Button, Card, Select } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+
+const options = [
+  { key: "1", text: '1',value: 1 },
+  { key: "2", text: '2',value: 2 },
+  { key: "3", text: '3', value: 3 },
+  { key: "4", text: '4', value: 4 },
+  { key: "5", text: '5', value: 5 },
+  { key: "6", text: '6', value: 6 },
+  { key: "7", text: '7', value: 7 },
+  { key: "8", text: '8', value: 8 },
+  { key: "9", text: '9', value: 9 },
+  { key: "10", text: '10', value: 10 },
+]
 
 
 class StakeholderSupport extends Component {
@@ -21,12 +34,17 @@ ratingField = (event) => {
   }
 
 
+  handleNumChange = (event, data) => {
+    this.setState({ [data.name]: data.value })
+  }
+
 onHandleRating = (event) => {
   this.props.handleRating(this.props.stakeholder, this.state)
   this.setState({
     positivity: '',
   })
 }
+
 
 assignStrategy = (stakeholder, newStrategy) => {
   let assStrategy = {
@@ -75,18 +93,13 @@ render() {
         </Card.Content>
           <div className={"stakeholder_card__input"}>
             <label> Support Score: {ratings && ratings[ratings.length -1].positivity}</label>
-            <input type="text-field"
-              placeholder='Change..'
-              name="positivity" value={this.state.positivity}
-              onChange={this.ratingField}/>
+            <Select  name="positivity" placeholder="Select" options={options}
+             onChange={this.handleNumChange} value={this.state.positivity} />
           </div>
           <div className={"stakeholder_card__submit"}>
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
           </div>
-          <div >
-            <label> Strategies: </label>
-            <p>{strategies[0] && strategies[strategies.length -1].option}</p>
-          </div>
+
 
         <Card.Content extra>
 

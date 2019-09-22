@@ -193,3 +193,9 @@ strategies: null
        value={this.state.power}
        onChange={this.ratingField}
        />
+
+
+       // <div>
+       //   <label> Strategies: </label>
+       //   <p>{strategies[0] && strategies[strategies.length -1].option}</p>
+       // </div>

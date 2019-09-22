@@ -104,12 +104,8 @@ render() {
           </div>
           <div className={"stakeholder_card__input"}>
             <label> Interest Score: {ratings && ratings[ratings.length -1].interest}</label>
-            <input
-              type="text-field"
-              placeholder='Change..'
-              name="interest"
-              value={this.state.interest}
-              onChange={this.ratingField} />
+            <Select  name="interest" placeholder="Select" options={options}
+             onChange={this.handleNumChange} value={this.state.interest} />
           </div>
           <div className={"stakeholder_card__submit"}>
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>

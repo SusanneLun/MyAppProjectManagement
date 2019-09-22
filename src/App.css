@@ -150,8 +150,12 @@ html, body, #root, #bar-chart {
   justify-content: space-between;
 }
 
-.ui.card .stakeholder_card__input input {
-  width: 40%;
+.ui.card .stakeholder_card__input Select {
+  width: 10%;
+}
+
+.ui.card .stakeholder_card__input___select {
+  width: 10%;
 }
 
 .ui.card .stakeholder_card__submit {

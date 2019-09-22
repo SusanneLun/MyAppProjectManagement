@@ -3,7 +3,7 @@ import { Button, Card, Select } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
-const options = [
+const ratingOptions = [
   { key: "1", text: '1',value: 1 },
   { key: "2", text: '2',value: 2 },
   { key: "3", text: '3', value: 3 },
@@ -77,6 +77,7 @@ render() {
 
   const { name, alias, title, id, ratings, strategies } = this.props.stakeholder
 
+
   return (
 
 
@@ -93,7 +94,7 @@ render() {
         </Card.Content>
           <div className={"stakeholder_card__input"}>
             <label> Support Score: {ratings && ratings[ratings.length -1].positivity}</label>
-            <Select  name="positivity" placeholder="Select" options={options}
+            <Select  name="positivity" placeholder="Select" options={ratingOptions}
              onChange={this.handleNumChange} value={this.state.positivity} />
           </div>
           <div className={"stakeholder_card__submit"}>
@@ -102,7 +103,11 @@ render() {
 
 
         <Card.Content extra>
+        <div>
+          <label> Strategies: </label>
+          <p>{strategies[0] && strategies[strategies.length -1].option}</p>
 
+        </div>
     </Card.Content>
   </Card>
 

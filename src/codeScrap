@@ -199,3 +199,5 @@ strategies: null
        //   <label> Strategies: </label>
        //   <p>{strategies[0] && strategies[strategies.length -1].option}</p>
        // </div>
+
+  <p>{strategies[0] && strategies[strategies.length -1].option}</p>

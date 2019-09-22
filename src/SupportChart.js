@@ -17,7 +17,8 @@ constructor() {
       this.state = {
         stakeholders: [],
         filter: '',
-        chartData: null
+        chartData: null,
+        option: ""
       }
 }
 

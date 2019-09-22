@@ -11,12 +11,14 @@ constructor() {
   }
 }
 
-
+handleChange = (event, data) => {
+  this.setState({ [data.name]: data.value })
+}
 
 
 render() {
 
-  let options = this.props.stakeholders.map(stakeholder => {return stakeholder.name})
+  const options = this.props.stakeholders.map(stakeholder => {return {name: stakeholder.name}})
 
   return(
   <div>
@@ -24,8 +26,8 @@ render() {
     <div className={"new_stakeholder_input"}>
       <label>Select Stakeholder</label>
       <Select name="name" label="Name" type="text" options={options}
-          placeholder="Select"
-              onChange={this.handleNumChange} value={this.state.value} />
+          placeholder="Select" value={this.state.name}
+              onChange={this.handleChange}  />
     </div>
   </Form.Group>
 

@@ -201,3 +201,7 @@ strategies: null
        // </div>
 
   <p>{strategies[0] && strategies[strategies.length -1].option}</p>
+
+  handleChange = (event, data) => {
+    this.setState({ [data.name]: data.value })
+  }

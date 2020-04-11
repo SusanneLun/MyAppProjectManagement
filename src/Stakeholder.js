@@ -22,7 +22,8 @@ class Stakeholder extends Component {
     this.state = {
       power: '',
       interest: '',
-      positivity: ''
+      positivity: '',
+      strategy: ''
     }
     }
 
@@ -78,10 +79,13 @@ viewStakeholder = (event) => {
   this.setState({redirect: true});
 }
 
+
+
 render() {
   const { name, title, alias, ratings } = this.props.stakeholder
   const stakeholder_id = this.props.stakeholder.id
   const id = this.props.project_id
+  const strategy = this.props.stakeholder.strategy
 
   return (
 
@@ -111,10 +115,13 @@ render() {
             <Button compact color='purple' onClick={this.onHandleRating}> Save Rating </Button>
           </div>
           <div className={"stakeholder_card__submit"}>
-          <Button compact color='purple' onClick={this.viewStakeholder}>View</Button>
+          <Link to={`/manage_stakeholder/${stakeholder_id}/${id}`}>
+            <Button renderAs="button" compact color='purple'>
+              <span>View</span>
+            </Button>
+            </Link>
           </div>
           </Form.Group>
-
         <Card.Content extra>
     </Card.Content>
   </Card>

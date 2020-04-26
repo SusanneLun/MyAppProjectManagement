@@ -9,6 +9,7 @@
     "acorn": "^7.1.1",
     "anychart": "^8.7.1",
     "anychart-react": "^1.4.1",
+    "bootstrap": "^4.4.1",
     "eslint-utils": "^1.4.3",
     "graceful-fs": "^4.2.3",
     "lodash": "^4.17.15",

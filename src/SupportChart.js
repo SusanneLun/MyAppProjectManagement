@@ -63,7 +63,8 @@ handleRating = (stakeholder, newRatings) => {
       stakeholders: newStakeholdersState,
       chartData: newStakeholdersState.map(stakeholder => { return {x: stakeholder.ratings[stakeholder.ratings.length -1].interest,
       value: stakeholder.ratings[stakeholder.ratings.length -1].power, size: stakeholder.ratings[stakeholder.ratings.length -1].positivity,
-      name: stakeholder.name}})
+      name: stakeholder.name,
+    }})
     })
     // set
   })

@@ -77,7 +77,7 @@ assignStrategy = (stakeholder, newStrategy) => {
 render() {
 
   const { name, alias, title, id, ratings, strategies } = this.props.stakeholder
-
+  const stakeholder_id = this.props.stakeholder.id
 
   return (
 
@@ -85,7 +85,7 @@ render() {
     <Card color='purple' className={"stakeholder_card"}>
       <Card.Content >
         <Card.Header key={id}>
-          <Link to={"/manage_stakeholder/" + id}>{name}</Link>
+          <Link to={`/manage_stakeholder/${stakeholder_id}/${id}`}>{name}</Link>
           <Card.Meta>
             <span className='date'> {alias}</span>
           </Card.Meta>

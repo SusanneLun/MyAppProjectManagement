@@ -21,6 +21,25 @@
 }
 ),
 
+componentDidMount() {
+
+     const { match: { params } } = this.props
+
+    APILogin.getStakeholderProjectInfo(params.stakeholder_id, params.project_id)
+      .then(stakeholder => this.setState({
+        name: stakeholder.stakeholder.name,
+        alias: stakeholder.stakeholder.alias,
+        title: stakeholder.stakeholder.title,
+        note: stakeholder.stakeholder.note,
+        power: stakeholder.ratings[stakeholder.ratings.length -1].power,
+        interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
+        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
+          })
+      )
+}
+
+
+
 
 // <div>
 //   <label> Strategies: </label>
@@ -350,3 +369,9 @@ import React, {Component} from 'react';
 
 
   <Link to={"/manage_stakeholder/" + id}>{name}</Link>
+
+  //From SupportChart under render
+  <div>
+  Selected value: {this.state.selectedValue}
+  </div>
+  

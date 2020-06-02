@@ -221,13 +221,11 @@ const { project_id } = this.props.match.params
       />
       </div>
       <h3>
-      Choose a project stakeholder to manage strategies
+      Choose a project stakeholder to add strategies
       </h3>
       <DropdownStakeholders stakeholders={this.state.stakeholders}
       onSelectChange={this.handleSelectChange}/>
-      <div>
-      Selected value: {this.state.selectedValue}
-      </div>
+
       <Strategies />
       </div>
     </div>

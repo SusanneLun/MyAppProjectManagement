@@ -13,7 +13,7 @@
     "eslint-utils": "^1.4.3",
     "graceful-fs": "^4.2.3",
     "kind-of": "^6.0.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-easy-chart": "^1.0.0",

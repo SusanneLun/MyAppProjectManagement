@@ -369,6 +369,10 @@ html, body, #root, #bar-chart {
   color: white;
 }
 
+.strategy_add__submit {
+  display: flex;
+}
+
 #create-stakeholder {
 
 }

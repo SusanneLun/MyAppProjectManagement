@@ -374,4 +374,9 @@ import React, {Component} from 'react';
   <div>
   Selected value: {this.state.selectedValue}
   </div>
-  
+
+
+  const { match: { params } } = this.props
+  const strategies = this.props.stakeholder.strategies
+
+  {strategies.map(strategies => strategies.option)}

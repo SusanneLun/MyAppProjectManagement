@@ -28,7 +28,8 @@ class ManageStakeholder extends Component {
         note: "",
         power: "",
         interest: "",
-        positivity: ""
+        positivity: "",
+        option: "",
 
     }
   }
@@ -47,7 +48,9 @@ class ManageStakeholder extends Component {
         note: stakeholder.stakeholder.note,
         power: stakeholder.ratings[stakeholder.ratings.length -1].power,
         interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
-        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity
+        positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity,
+        strategies: stakeholder.strategies,
+        option: stakeholder.strategies.option
           })
       )
 }
@@ -120,7 +123,7 @@ class ManageStakeholder extends Component {
         power: stakeholder.ratings[stakeholder.ratings.length -1].power,
         interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
         positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity,
-        strategy: stakeholder.strategy,
+        strategies: stakeholder.strategies,
         project_id: params.project_id})})
   }
 
@@ -142,8 +145,8 @@ handleDelete = (stakeholder, project) => {
 
 render() {
 
-  const { match: { params } } = this.props
-  const strategies = this.props.stakeholder.strategies
+    const { match: { params } } = this.props
+    const stakeholder = this.state.stakeholder
 
 return (
 <div >
@@ -160,11 +163,12 @@ return (
     </Container>
     <Container>
     <div>
-    <label> Strategies:
-    <p>
-    {strategies.map(strategies => strategies.option)}
-    </p>
-    </label>
+      <label> Strategies:
+      <p>
+        {stakeholder.map(strategies => strategies.option)}
+      </p>
+      </label>
+
     </div>
     </Container>
     </Form.Group>

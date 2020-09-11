@@ -146,7 +146,7 @@ handleDelete = (stakeholder, project) => {
 render() {
 
     const { match: { params } } = this.props
-    const stakeholder = this.state.stakeholder
+  
 
 return (
 <div >
@@ -162,14 +162,7 @@ return (
     <Form.Input name="note" fluid label='My Notes' type="text" rows="5" onChange={this.handleChange} value={this.state.note} />
     </Container>
     <Container>
-    <div>
-      <label> Strategies:
-      <p>
-        {stakeholder.map(strategies => strategies.option)}
-      </p>
-      </label>
 
-    </div>
     </Container>
     </Form.Group>
     <p>Power Rating</p>

@@ -80,6 +80,47 @@ addNewStrategy = (stakeholder, strategy) => {
   })
 }
 
+// handleStrategyAddition = (selectedValue, newStrategy) => {
+//   // let newStrategies = { // add a new ratings object
+//   //   ...newRatings, // first take all the new ratings we got passed as arguments
+//   //   ...stakeholder.ratings[ // fill it with any other ratings we had in the past
+//   //     stakeholder.ratings.length-1 // the latest rating is at the last index in the array
+//   let newStrategy = {
+//     option: this.state.stakeholder.strategy.option
+//   }
+//
+//
+// }
+
+
+
+assignStrategy = (selectedValue, newStrategy) => {
+  let assStrategy = {
+    strategy: this.state.stakeholder.strategy,
+    project_id: this.props.match.params.id
+  }
+
+  fetch(`http://localhost:3000/stakeholders/${this.state.stakeholder.id}/strategies`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(
+    {
+      strategy: this.state.stakeholder.strategy,
+      project_id: this.props.match.params.id
+    }
+)
+}).then(res => res.json())
+.then(res => this.props.addNewStrategy(res))
+.then(this.setState({
+  strategy: this.state.stakeholder.strategy
+}
+))
+}
+
+
+
 updateFilter = newFilter => {
   this.setState({
     filter: newFilter
@@ -103,6 +144,8 @@ handleSelectChange = (selectedValue) => {
     selectedValue: selectedValue
   })
 }
+
+
 
 componentDidMount() {
   const { id } = this.props.match.params

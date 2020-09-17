@@ -1,0 +1,8 @@
++ node-forge@0.10.0
+updated 1 package and audited 1972 packages in 24.758s
+
+79 packages are looking for funding
+  run `npm fund` for details
+
+found 79 vulnerabilities (19 low, 38 moderate, 22 high)
+  run `npm audit fix` to fix them, or `npm audit` for details

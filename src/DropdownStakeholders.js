@@ -4,35 +4,37 @@ import { Dropdown, Form, Select } from 'semantic-ui-react'
 
 
 class DropdownStakeholders extends Component {
-constructor() {
-  super()
-  this.state = {
-    id: "",
-    name: ""
-  }
+constructor(props) {
+  super(props)
 }
 
-
-  handleChange = (event, data) => {
-    this.setState({ [data.name]: data.value })
+// On the change event for the select box pass the selected value back to the parent
+  handleChange = (event) => {
+    let selectedValue = event.target.value;
+    this.props.onSelectChange(selectedValue);
   }
 
 
 render() {
+  let arrayOfStakeholders = this.props.stakeholders
 
-  const options = this.props.stakeholders.map(stakeholder => stakeholder.name)
+  let options = arrayOfStakeholders.map((data) =>
+    <option
+      key={data.id}
+      value={data.id}
+      >
+      {data.name}
+      </option>
+)
+
 
   return(
-  <div>
-  <Form.Group widths='equal' >
-    <div className={"new_stakeholder_input"}>
-      <label>Select Stakeholder</label>
-      <Select name="name" text={options} label="Name" options={options}
-        placeholder="Select" value={this.state.name}
-        onChange={this.handleChange} />
-    </div>
-  </Form.Group>
-  </div>
+    <select name="customSearch" className="custom-search-select"
+    onChange={this.handleChange}>
+      <option>Select Item</option>
+      {options}
+      </select>
+
 )}
 }
 

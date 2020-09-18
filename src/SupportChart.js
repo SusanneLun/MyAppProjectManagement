@@ -18,7 +18,8 @@ constructor() {
         stakeholders: [],
         filter: '',
         chartData: null,
-        option: ""
+        option: "",
+        selectedValue: 'Nothing selected'
       }
 }
 
@@ -96,6 +97,11 @@ selectStakeholder = (stakeholder) => {
   })
 }
 
+handleSelectChange = (selectedValue) => {
+  this.setState({
+    selectedValue: selectedValue
+  })
+}
 
 componentDidMount() {
   const { id } = this.props.match.params
@@ -216,7 +222,11 @@ const { project_id } = this.props.match.params
       <h3>
       Choose a project stakeholder to manage strategies
       </h3>
-      <DropdownStakeholders stakeholders={this.state.stakeholders}/>
+      <DropdownStakeholders stakeholders={this.state.stakeholders}
+      onSelectChange={this.handleSelectChange}/>
+      <div>
+      Selected value: {this.state.selectedValue}
+      </div>
       <Strategies />
       </div>
     </div>

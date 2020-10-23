@@ -143,7 +143,7 @@ handleDelete = (stakeholder, project) => {
 render() {
 
   const { match: { params } } = this.props
-
+  const strategies = this.props.stakeholder.strategies
 
 return (
 <div >
@@ -162,7 +162,7 @@ return (
     <div>
     <label> Strategies:
     <p>
-
+    {strategies.map(strategies => strategies.option)}
     </p>
     </label>
     </div>

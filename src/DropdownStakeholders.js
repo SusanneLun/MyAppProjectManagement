@@ -31,7 +31,7 @@ render() {
   return(
     <select name="customSearch" className="custom-search-select"
     onChange={this.handleChange}>
-      <option>Select Item</option>
+      <option>Select Stakeholder</option>
       {options}
       </select>
 

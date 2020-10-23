@@ -323,3 +323,26 @@ import React, {Component} from 'react';
 	}
 
 	export default DropdownSelect;
+
+  class DropdownStakeholders extends Component {
+  constructor() {
+    super()
+    this.state = {
+      id: "",
+      name: ""
+    }
+  }
+
+  <div>
+  <Form.Group widths='equal' >
+    <div className={"new_stakeholder_input"}>
+      <label>Select Stakeholder</label>
+      <Select text={options} key={data.id} value={data.id} options={options}
+        placeholder="Select"
+        onChange={this.handleChange} />
+    </div>
+  </Form.Group>
+  </div>
+
+[0]
+  option: stakeholder.option[stakeholder.strategies.length -1].option

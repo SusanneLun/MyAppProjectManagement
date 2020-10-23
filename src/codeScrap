@@ -380,3 +380,35 @@ import React, {Component} from 'react';
   const strategies = this.props.stakeholder.strategies
 
   {strategies.map(strategies => strategies.option)}
+
+    const strategies = this.state.stakeholder.strategies
+
+  <div>
+    <label> Strategies:
+    <p>
+      {strategies.map(strategies => strategies.option)}
+    </p>
+    </label>
+
+  </div>
+
+
+{
+  render() {
+  const { option } = this.props.option
+
+    return(
+      <div>
+      <Form>
+      <div class="ui checkbox">
+      <input type="checkbox" />
+        <label>{option}</label>
+      </div>
+      </Form>
+      </div>
+    )
+  }
+  }
+
+
+  <label>{option}</label>

@@ -33,14 +33,6 @@ class ManageStakeholder extends Component {
     }
   }
 
-  // componentDidMount() {
-  //     const { id } = this.props.match.params
-  //     APILogin.getProjectStakeholders(id)
-  //       .then(stakeholder => this.setState({ name: stakeholder.name, alias: stakeholder.alias, title: stakeholder.title,
-  //         note: stakeholder.note}))
-  //     this.getStakeholderProjectInfo()
-  // }
-
 
 
   componentDidMount() {
@@ -128,6 +120,7 @@ class ManageStakeholder extends Component {
         power: stakeholder.ratings[stakeholder.ratings.length -1].power,
         interest: stakeholder.ratings[stakeholder.ratings.length -1].interest,
         positivity: stakeholder.ratings[stakeholder.ratings.length -1].positivity,
+        strategy: stakeholder.strategy,
         project_id: params.project_id})})
   }
 
@@ -151,6 +144,7 @@ render() {
 
   const { match: { params } } = this.props
 
+
 return (
 <div >
   <Form  onSubmit={() => this.handleSubmit(params.project_id, this.state)} style={{marginLeft: 50, top: 80}}>
@@ -163,6 +157,15 @@ return (
     <Form.Input name="alias" fluid label='Alias' type="text" onChange={this.handleChange}  value={this.state.alias}/>
     <Container>
     <Form.Input name="note" fluid label='My Notes' type="text" rows="5" onChange={this.handleChange} value={this.state.note} />
+    </Container>
+    <Container>
+    <div>
+    <label> Strategies:
+    <p>
+
+    </p>
+    </label>
+    </div>
     </Container>
     </Form.Group>
     <p>Power Rating</p>

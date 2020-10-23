@@ -23,7 +23,6 @@ class StakeholderSupport extends Component {
     this.state = {
       positivity: '',
       option: '',
-      strategy: ''
     }
     }
 
@@ -76,8 +75,11 @@ assignStrategy = (stakeholder, newStrategy) => {
 
 render() {
 
-  const { name, alias, title, id, ratings, strategies } = this.props.stakeholder
+  const { name, alias, title, ratings } = this.props.stakeholder
   const stakeholder_id = this.props.stakeholder.id
+  const id = this.props.project_id
+  const strategies = this.props.stakeholder.strategies
+
 
   return (
 
@@ -106,6 +108,9 @@ render() {
         <Card.Content extra>
         <div>
           <label> Strategies:
+          <p>
+            {strategies.map(strategies => strategies.option)}
+          </p>
           </label>
 
         </div>

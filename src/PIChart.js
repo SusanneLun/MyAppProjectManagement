@@ -49,6 +49,7 @@ constructor() {
   super()
     this.state = {
       stakeholders: [],
+      strategies: [],
       filter: '',
       selectedStakeholder: null,
       chartData: null
@@ -256,6 +257,7 @@ return (
                               handleRating={this.handleRating}
                               filter={this.state.filter}
                               selectStakeholder={this.selectStakeholder}
+                              strategies={this.state.strategies}
                               project_id={this.props.match.params.id}/>
           }
         </div>

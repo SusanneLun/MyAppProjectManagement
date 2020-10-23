@@ -208,7 +208,7 @@ const { project_id } = this.props.match.params
                         handleRating={this.handleRating}
                         filter={this.state.filter}
                         selectStakeholder={this.selectStakeholder}
-                        projectId={project_id}/>
+                        project_id={this.props.match.params.id}/>
     }
     </div>
     <div className={"graph_section_wrapper"}>

@@ -33,7 +33,7 @@ return (
         <Link to={`/manage_project/${project.id}`}>
           <p></p>
         <Button compact color='black'>
-        Change Project </Button>
+        Edit Project </Button>
         </Link>
       </Card.Header>
     </Card.Content>

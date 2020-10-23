@@ -346,3 +346,4 @@ import React, {Component} from 'react';
 
 [0]
   option: stakeholder.option[stakeholder.strategies.length -1].option
+{strategies[0] && strategies[strategies.length -1].option}

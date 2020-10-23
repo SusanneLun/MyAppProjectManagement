@@ -22,7 +22,8 @@ class StakeholderSupport extends Component {
     super()
     this.state = {
       positivity: '',
-      option: ''
+      option: '',
+      strategy: ''
     }
     }
 
@@ -41,7 +42,7 @@ ratingField = (event) => {
 onHandleRating = (event) => {
   this.props.handleRating(this.props.stakeholder, this.state)
   this.setState({
-    positivity: '',
+    positivity: ''
   })
 }
 
@@ -104,8 +105,8 @@ render() {
 
         <Card.Content extra>
         <div>
-          <label> Strategies: </label>
-          <p>{strategies[0] && strategies[strategies.length -1].option}</p>
+          <label> Strategies:
+          </label>
 
         </div>
     </Card.Content>

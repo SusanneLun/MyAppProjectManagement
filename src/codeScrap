@@ -412,3 +412,8 @@ import React, {Component} from 'react';
 
 
   <label>{option}</label>
+
+  {
+    strategies.map(option =>
+    <StrategiesOption option={option} />)
+  }

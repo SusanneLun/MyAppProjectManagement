@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import StrategiesOption from './StrategiesOption'
 
 
@@ -18,6 +18,11 @@ render() {
     strategies.map(option =>
     <StrategiesOption option={option} />)
   }
+  <p>
+  </p>
+  <div className={"strategy_add__submit"} >
+    <Button compact color='purple' >Add strategy</Button>
+  </div>
   </Form>
   </div>
 )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import StrategiesOption from './StrategiesOption'
 
 
 
@@ -12,10 +13,10 @@ class StrategiesCategory extends Component {
         }
      }
 
-  unCheck(i){
-        let ref = 'ref_' + i;
-        this.refs[ref].checked = !this.refs[ref].checked;
-     }
+  // unCheck(i){
+  //       let ref = 'ref_' + i;
+  //       this.refs[ref].checked = !this.refs[ref].checked;
+  //    }
 
 render() {
   const { name, strategies } = this.props.category
@@ -27,14 +28,15 @@ render() {
   <Form >
   <h3>{name}</h3>
   <div>
-  <label> Strategies:
+  <label>Strategies:
   <p>
-    {strategies.map(strategies => strategies.option)}
+    {strategies.map(strategies =>
+      <StrategiesOption
+      strategies={strategies}
+    />)}
   </p>
   </label>
-
-       </div>
-
+  </div>
   <p>
   </p>
   <div className={"strategy_add__submit"} >

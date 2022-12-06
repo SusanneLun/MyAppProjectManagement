@@ -26,7 +26,7 @@
     "node-forge": "^0.10.0",
     "object-path": "^0.11.5",
     "patch-package": "^6.2.2",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-easy-chart": "^1.0.0",
